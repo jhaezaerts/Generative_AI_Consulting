@@ -59,7 +59,11 @@ if interaction == "Text":
     description = st.text_area(label="", label_visibility="collapsed", height=300)
     st.title("")
     if description:
-        get_advice(description)
+        with st.spinner('Processing your response...'):
+            get_advice(description)
+        st.title("")
+        st.success('You can always edit your text if you want to provide additional information.  \n  '
+                   'Good luck with your AI endeavours!')
 
 if interaction == "Speech":
     responses = [None] * 5
