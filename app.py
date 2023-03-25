@@ -57,13 +57,17 @@ if interaction == "Text":
     st.subheader("Provide a clear description of your business.")
     st.write('*line of work, key activities, desirable activities, time-consuming or error-prone processes, etc.*')
     description = st.text_area(label="", label_visibility="collapsed", height=300)
-    st.title("")
-    if description:
-        with st.spinner('Processing your response...'):
-            get_advice(description)
-        st.title("")
-        st.success('You can always edit your text if you want to provide additional information.  \n  '
-                   'Good luck with your AI endeavours!')
+    if st.button("Generate advice"):
+        if description:
+            with st.spinner('Processing your response...'):
+                st.title("")
+                get_advice(description)
+            st.title("")
+            st.success('You can always edit your text if you want to provide additional information.  \n  '
+                       'Good luck with your AI endeavours!')
+        else:
+            st.title("")
+            st.write("I need a description before I can generate advice.")
 
 if interaction == "Speech":
     responses = [None] * 5
