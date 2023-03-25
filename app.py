@@ -27,8 +27,8 @@ def record(key):
     return audio_recorder(
                 pause_threshold=10.0,
                 text="",
-                recording_color="#fd349C",
-                neutral_color="#1e49e2",
+                recording_color="#cd0000",
+                neutral_color="#000000",
                 icon_name="fa-solid fa-microphone",
                 icon_size="3x",
                 key=key)
