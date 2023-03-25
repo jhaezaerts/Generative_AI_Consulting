@@ -13,7 +13,7 @@ You have two options to interact with the services, either using text, or using 
 ![image](https://user-images.githubusercontent.com/72695808/227727953-b2757161-5c61-4d65-9cdf-ccec45105e00.png)
 
 
-If you choose to interact using text, you can fill in the text area to provide a clear description of your specific business, and then hit ctrl + enter to send in your response. If you're on mobile, you should simply leave the text area.
+If you choose to interact using text, you can fill in the text area to provide a clear description of your specific business, and then click the button to generate advice.
 
 ![image](https://user-images.githubusercontent.com/72695808/227728172-0bea56ff-462f-43b5-976b-749b5620224b.png)
 
