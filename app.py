@@ -29,7 +29,7 @@ def record(key):
                 text="",
                 recording_color="#fd349C",
                 neutral_color="#1e49e2",
-                icon_name="fa-solid fa-mug-hot",
+                icon_name="fa-solid fa-microphone",
                 icon_size="3x",
                 key=key)
 
@@ -73,39 +73,58 @@ if interaction == "Speech":
     responses = [None] * 5
 
     # Question 1
-    st.subheader("What line of work are you in?")
-    audio_bytes = record("q1")
-    responses = whisper(audio_bytes, responses, 0)
-    if responses[0]:
-        st.write("*Response submitted :white_check_mark:*")
+    c1, c2 = st.columns([1, 7])
+    with c1:
+        audio_bytes = record("q1")
+    with c2:
+        st.subheader("What line of work are you in?")
+        responses = whisper(audio_bytes, responses, 0)
+        if responses[0]:
+            st.write("*Response submitted :white_check_mark:*")
 
     # Question 2
-    st.subheader("What are the key operating activities of your business?")
-    audio_bytes = record("q2")
-    responses = whisper(audio_bytes, responses, 1)
-    if responses[1]:
-        st.write("*Response submitted :white_check_mark:*")
+    st.title("")
+    c1, c2 = st.columns([1, 7])
+    with c1:
+        audio_bytes = record("q2")
+    with c2:
+        st.subheader("What are the key operating activities of your business?")
+        responses = whisper(audio_bytes, responses, 1)
+        if responses[1]:
+            st.write("*Response submitted :white_check_mark:*")
 
     # Question 3
-    st.subheader("Are there any processes that are time-consuming or error-prone?")
-    audio_bytes = record("q3")
-    responses = whisper(audio_bytes, responses, 2)
-    if responses[2]:
-        st.write("*Response submitted :white_check_mark:*")
+    st.title("")
+    c1, c2 = st.columns([1, 7])
+    with c1:
+        audio_bytes = record("q3")
+    with c2:
+        st.subheader("Are there any processes that are time-consuming or error-prone?")
+        responses = whisper(audio_bytes, responses, 2)
+        if responses[2]:
+            st.write("*Response submitted :white_check_mark:*")
 
     # Question 4
-    st.subheader("Are there any areas of your business that you think could benefit from AI?")
-    audio_bytes = record("q4")
-    responses = whisper(audio_bytes, responses, 3)
-    if responses[3]:
-        st.write("*Response submitted :white_check_mark:*")
+    st.title("")
+    c1, c2 = st.columns([1, 7])
+    with c1:
+        audio_bytes = record("q4")
+    with c2:
+        st.subheader("Are there any areas of your business that you think could benefit from AI?")
+        responses = whisper(audio_bytes, responses, 3)
+        if responses[3]:
+            st.write("*Response submitted :white_check_mark:*")
 
     # Question 5
-    st.subheader("What kind of AI tools or technologies are you most interested in exploring?")
-    audio_bytes = record("q5")
-    responses = whisper(audio_bytes, responses, 4)
-    if responses[4]:
-        st.write("*Response submitted :white_check_mark:*")
+    st.title("")
+    c1, c2 = st.columns([1, 7])
+    with c1:
+        audio_bytes = record("q5")
+    with c2:
+        st.subheader("What kind of AI tools or technologies are you most interested in exploring?")
+        responses = whisper(audio_bytes, responses, 4)
+        if responses[4]:
+            st.write("*Response submitted :white_check_mark:*")
 
     st.title("")
     if None not in responses:
