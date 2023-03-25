@@ -6,7 +6,7 @@
 
 ## Description
 
-This Streamlit mini-app generates sound business advice using OpenAI's GPT-3.5-turbo model for chat completion and whisper-1 for speech-to-text conversion.
+This Streamlit mini-app generates AI-oriented business advice using OpenAI's GPT-3.5-turbo model for chat completion and whisper-1 for speech-to-text conversion.
 
 You have two options to interact with the services, either using text, or using speech.
 
