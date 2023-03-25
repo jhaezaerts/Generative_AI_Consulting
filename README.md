@@ -18,7 +18,8 @@ This Streamlit mini-app generates AI-oriented business advice using OpenAI's GPT
 ![image](https://user-images.githubusercontent.com/72695808/227729390-e3ebbf6d-005e-4aba-b4dc-31b0212ac16b.png)
 
 
-<br>If you choose to interact using speech, you can record your responses by clicking on the coffee mugs under each question. If you answered the question, click on the coffee mug again to stop recording and submit your response. Once you've submitted responses for all questions, advice will be generated.
+<br>If you choose to interact using speech, you can record your responses by clicking on the microphones alongside question. If you answered the question, click on the microphone again to stop recording and submit your response. Once you've submitted responses for all questions, advice will be generated.
 
-![image](https://user-images.githubusercontent.com/72695808/227728316-277ae48c-c1df-4af6-8865-4b30dc2834b1.png)
+![image](https://user-images.githubusercontent.com/72695808/227730848-3b728523-8353-4c50-969c-ed4325f7103f.png)
+
 
