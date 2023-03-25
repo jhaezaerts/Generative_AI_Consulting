@@ -15,7 +15,7 @@ You have two options to interact with the services, either using text, or using 
 
 If you choose to interact using text, you can fill in the text area to provide a clear description of your specific business, and then click the button to generate advice.
 
-![image](https://user-images.githubusercontent.com/72695808/227728172-0bea56ff-462f-43b5-976b-749b5620224b.png)
+![image](https://user-images.githubusercontent.com/72695808/227729390-e3ebbf6d-005e-4aba-b4dc-31b0212ac16b.png)
 
 
 If you choose to interact using speech, you can record your responses by clicking on the coffee mugs under each question. If you answered the question, click on the coffee mug again to stop recording and submit your response. Once you've submitted responses for all questions, advice will be generated.
