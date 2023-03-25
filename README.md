@@ -1,4 +1,4 @@
-# **Generate AI-specific business advice with OpenAI Whisper and ChatGPT.**
+# **Generate AI business advice with OpenAI Whisper and ChatGPT.**
 
 live version of this app at: https://jhaezaerts-generative-ai-consulting-app-77h3ie.streamlit.app/
 
