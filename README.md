@@ -10,7 +10,7 @@ This Streamlit mini-app generates AI-oriented business advice using OpenAI's GPT
 
 <br>You have two options to interact with the services, either using text, or using speech.
 
-![image](https://user-images.githubusercontent.com/72695808/227727953-b2757161-5c61-4d65-9cdf-ccec45105e00.png)
+![image](https://user-images.githubusercontent.com/72695808/227738003-6e196fb3-88a2-4bb6-830b-4a6dbebd0432.png)
 
 
 <br>If you choose to interact using text, you can fill in the text area to provide a clear description of your specific business, and then click the button to generate advice.
