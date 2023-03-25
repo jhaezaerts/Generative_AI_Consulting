@@ -1,12 +1,13 @@
 # Imports
+import config
 from audio_recorder_streamlit import audio_recorder
 import openai
 import streamlit as st
 
 
 # API Credentials
-openai.organization = "org-gcTCoLEWkqGllMoDcvJnnSwV"
-openai.api_key = "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"
+openai.organization = config.organization
+openai.api_key = config.api_key
 
 
 def get_advice(description):
