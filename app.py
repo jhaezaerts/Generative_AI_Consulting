@@ -66,7 +66,7 @@ def main():
     st.title("Discover what AI can mean for your business.")
     st.title("")
 
-    st.header("How would you like to interact with me?")
+    st.header("How would you like to interact?")
     interaction = st.radio("", ("Text", "Speech"), label_visibility="collapsed")
     st.title("")
 
