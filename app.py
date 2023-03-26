@@ -39,7 +39,10 @@ def whisper(bytes, responses, idx):
         with open('response.wav', mode='bw') as audio_file:
             audio_file.write(bytes)
         response = open("response.wav", "rb")
-        stt = openai.Audio.transcribe("whisper-1", response)
+        try:
+            stt = openai.Audio.transcribe("whisper-1", response)
+        except openai.Error.InvalidRequestError:
+            pass
         responses[idx] = stt["text"]
     return responses
 
