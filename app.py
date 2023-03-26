@@ -75,6 +75,12 @@ def main():
     interaction = st.radio("", ("Text", "Speech"), label_visibility="collapsed")
     st.title("")
 
+    placeholder = st.empty()
+    with placeholder.container():
+        st.write("one")
+        st.write("two")
+    placeholder.empty()
+
     if interaction == "Text":
         st.header("Provide a clear description of your business.")
         st.write('*line of work, key activities, desirable activities, time-consuming, repetitive or error-prone processes, etc.*')
@@ -95,22 +101,68 @@ def main():
                 st.write("I need a description before I can generate advice.")
 
     if interaction == "Speech":
-        responses = [None] * 5
+        stt = None
 
-        set_question("What line of work are you in?", "q1", 0, responses)
-        set_question("What are the key operating activities of your business?", "q2", 1, responses)
-        set_question("Are there any processes that are time-consuming or error-prone?", "q3", 2, responses)
-        set_question("Are there any areas of your business that you think could benefit from AI?", "q4", 3, responses)
-        set_question("What kind of AI tools or technologies are you most interested in exploring?", "q5", 4, responses)
+        # initialize questions
+        questions = [
+            "What line of work are you in?",
+            "What are the key operating activities of your business?",
+            "Are there any processes that are time-consuming or error-prone?",
+            "Are there any areas of your business that you think could benefit from AI?",
+            "What kind of AI tools or technologies are you most interested in exploring?"
+        ]
 
+        # initialize session states
+        if "idx" not in st.session_state:
+            st.session_state.idx = 0
+        if "question" not in st.session_state:
+            st.session_state.question = questions[0]
+        if "responses" not in st.session_state:
+            st.session_state.responses = [None] * 5
+
+        question_placeholder = st.empty()
+        question_placeholder.subheader(st.session_state.question)
         st.title("")
-        if None not in responses:
+        c1, c2, c3 = st.columns([1, 7, 2])
+        with c1:
+            audio_bytes = audio_recorder(
+                            pause_threshold=10.0,
+                            text="",
+                            recording_color="#cd0000",
+                            neutral_color="#000000",
+                            icon_name="fa-solid fa-microphone",
+                            icon_size="2xl")
+        with c2:
+            if audio_bytes:
+                with open('test.wav', mode='bw') as audio_file:
+                    audio_file.write(audio_bytes)
+                response = open("test.wav", "rb")
+                stt = openai.Audio.transcribe("whisper-1", response)
+                st.session_state.responses[st.session_state.idx] = stt["text"]
+                transcript_placeholder = st.empty()
+                transcript_placeholder.write(stt["text"])
+
+        with c3:
+            if stt:
+                button_placeholder = st.empty()
+                clicked = button_placeholder.button("submit")
+                if clicked:
+                    if st.session_state.idx < len(questions)-1:
+                        st.session_state.idx += 1
+                    st.session_state.question = questions[st.session_state.idx]
+                    transcript_placeholder.empty()
+                    button_placeholder.empty()
+                    if None in st.session_state.responses:
+                        question_placeholder.subheader(questions[st.session_state.idx])
+                    else:
+                        st.session_state.idx = 0
+                        question_placeholder.subheader(questions[st.session_state.idx])
+
+        if None not in st.session_state.responses and st.session_state.idx == 0:
             with st.spinner('Processing your responses...'):
-                description = ', '.join(responses)
+                description = ', '.join(st.session_state.responses)
+                st.title("")
                 get_advice(description)
-            st.title("")
-            st.success('You can always resubmit responses if you want to provide additional information.  \n  '
-                       'Good luck with your AI endeavours!')
 
 
 if __name__ == "__main__":
