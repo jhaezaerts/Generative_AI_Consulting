@@ -38,7 +38,7 @@ def main():
                                    placeholder="I am a car salesperson. Our company targets the luxurious market segment. We sell premier, high-quality cars in our physical stores, as well as online via our website. We mostly...",
                                    label_visibility="collapsed",
                                    height=300)
-        if st.button("Generate advice"):
+        if st.button("Generate advice", type="primary"):
             if description:
                 with st.spinner('Processing your response...'):
                     st.title("")
@@ -89,7 +89,7 @@ def main():
         with c3:
             button_placeholder = st.empty()
             if stt:
-                clicked = button_placeholder.button("Submit")
+                clicked = button_placeholder.button("Submit", type="primary")
                 if clicked:
                     if st.session_state.idx < len(questions)-1:
                         st.session_state.idx += 1
