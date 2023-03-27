@@ -31,12 +31,6 @@ def main():
     interaction = st.radio("", ("Text", "Speech"), label_visibility="collapsed")
     st.title("")
 
-    placeholder = st.empty()
-    with placeholder.container():
-        st.write("one")
-        st.write("two")
-    placeholder.empty()
-
     if interaction == "Text":
         st.header("Provide a clear description of your business.")
         st.write('*line of work, key activities, desirable activities, time-consuming, repetitive or error-prone processes, etc.*')
