@@ -51,7 +51,7 @@ def main():
                                    placeholder="I am a car salesperson. Our company targets the luxurious market segment. We sell premier, high-quality cars in our physical stores, as well as online via our website. We mostly...",
                                    label_visibility="collapsed",
                                    height=300)
-        if st.button("Generate advice", type="primary"):
+        if st.button("Generate", type="primary"):
             if description:
                 with st.spinner('Processing your response...'):
                     st.markdown("""---""")
