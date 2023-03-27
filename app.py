@@ -99,6 +99,7 @@ def main():
                     button_placeholder.empty()
                     question_placeholder.subheader(questions[st.session_state.idx])
 
+        st.markdown("""---""")
         advice_placeholder = st.empty()
         if None not in st.session_state.responses and clicked:
             with st.spinner('Processing your responses...'):
