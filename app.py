@@ -67,7 +67,6 @@ def main():
 
         question_placeholder = st.empty()
         question_placeholder.subheader(questions[st.session_state.idx])
-        st.title("")
         c1, c2, c3 = st.columns([1, 7, 2])
         with c1:
             audio_bytes = audio_recorder(
