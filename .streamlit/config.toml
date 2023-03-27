@@ -1,5 +1,5 @@
 [theme]
-
+base = "light"
 # Primary accent for interactive elements
 primaryColor = '#ACEAFF'
 
