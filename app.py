@@ -20,51 +20,7 @@ def get_advice(description):
                                         + ". Express enthusiasm about the description before listing the opportunities"}
         ]
     )
-    return st.write(response['choices'][0]['message']['content'])
-
-
-def record(key):
-    return audio_recorder(
-                pause_threshold=10.0,
-                text="",
-                recording_color="#cd0000",
-                neutral_color="#000000",
-                icon_name="fa-solid fa-microphone",
-                icon_size="2xl",
-                key=key)
-
-
-def whisper(bytes, responses, idx):
-    if bytes:
-        with open('response.wav', mode='bw') as audio_file:
-            audio_file.write(bytes)
-        response = open("response.wav", "rb")
-        while True:
-            try:
-                stt = openai.Audio.transcribe("whisper-1", response)
-                break
-            except openai.InvalidRequestError:
-                pass
-        responses[idx] = stt["text"]
-    return responses
-
-
-def set_question(title, key, idx, responses):
-    st.title("")
-    st.subheader(title)
-    st.write("")
-    c1, c2, c3 = st.columns([1, 7, 2])
-    with c1:
-        audio_bytes = record(key)
-    with c2:
-        responses = whisper(audio_bytes, responses, idx)
-        if responses[idx]:
-            st.write(responses[idx])
-        else:
-            st.write("")
-    with c3:
-        if responses[idx]:
-            st.write(":heavy_check_mark:")
+    return response['choices'][0]['message']['content']
 
 
 def main():
@@ -92,10 +48,7 @@ def main():
             if description:
                 with st.spinner('Processing your response...'):
                     st.title("")
-                    get_advice(description)
-                st.title("")
-                st.success('You can always edit your text if you want to provide additional information.  \n  '
-                           'Good luck with your AI endeavours!')
+                    st.write(get_advice(description))
             else:
                 st.title("")
                 st.write("I need a description before I can generate advice.")
@@ -115,13 +68,11 @@ def main():
         # initialize session states
         if "idx" not in st.session_state:
             st.session_state.idx = 0
-        if "question" not in st.session_state:
-            st.session_state.question = questions[0]
         if "responses" not in st.session_state:
             st.session_state.responses = [None] * 5
 
         question_placeholder = st.empty()
-        question_placeholder.subheader(st.session_state.question)
+        question_placeholder.subheader(questions[st.session_state.idx])
         st.title("")
         c1, c2, c3 = st.columns([1, 7, 2])
         with c1:
@@ -133,36 +84,37 @@ def main():
                             icon_name="fa-solid fa-microphone",
                             icon_size="2xl")
         with c2:
+            transcript_placeholder = st.empty()
             if audio_bytes:
                 with open('test.wav', mode='bw') as audio_file:
                     audio_file.write(audio_bytes)
                 response = open("test.wav", "rb")
                 stt = openai.Audio.transcribe("whisper-1", response)
                 st.session_state.responses[st.session_state.idx] = stt["text"]
-                transcript_placeholder = st.empty()
                 transcript_placeholder.write(stt["text"])
 
         with c3:
+            button_placeholder = st.empty()
             if stt:
-                button_placeholder = st.empty()
-                clicked = button_placeholder.button("submit")
+                clicked = button_placeholder.button("Submit")
                 if clicked:
                     if st.session_state.idx < len(questions)-1:
                         st.session_state.idx += 1
-                    st.session_state.question = questions[st.session_state.idx]
-                    transcript_placeholder.empty()
-                    button_placeholder.empty()
-                    if None in st.session_state.responses:
-                        question_placeholder.subheader(questions[st.session_state.idx])
                     else:
                         st.session_state.idx = 0
-                        question_placeholder.subheader(questions[st.session_state.idx])
+                    transcript_placeholder.empty()
+                    button_placeholder.empty()
+                    question_placeholder.subheader(questions[st.session_state.idx])
 
-        if None not in st.session_state.responses and st.session_state.idx == 0:
+        advice_placeholder = st.empty()
+        if None not in st.session_state.responses and clicked:
             with st.spinner('Processing your responses...'):
                 description = ', '.join(st.session_state.responses)
-                st.title("")
-                get_advice(description)
+                advice_placeholder.write(get_advice(description))
+                st.session_state.responses = [None] * 5
+                question_placeholder.subheader(questions[st.session_state.idx])
+        else:
+            advice_placeholder.empty()
 
 
 if __name__ == "__main__":
