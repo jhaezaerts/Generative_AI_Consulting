@@ -17,7 +17,9 @@ def get_advice(description):
             {"role": "user", "content": "What are 5 key opportunities for AI that can be leveraged based on the "
                                         "following information: "
                                         + description
-                                        + ". Express enthusiasm about the description before listing the opportunities"}
+                                        + ". Express enthusiasm about the information before listing the opportunities."
+                                        + " However, if the information is unrelated to the description of a business, "
+                                        + " say that you cannot provide valuable opportunities with the given information."}
         ]
     )
     return response['choices'][0]['message']['content']
@@ -41,7 +43,7 @@ def main():
         if st.button("Generate advice", type="primary"):
             if description:
                 with st.spinner('Processing your response...'):
-                    st.title("")
+                    st.markdown("""---""")
                     st.write(get_advice(description))
             else:
                 st.title("")
@@ -89,7 +91,7 @@ def main():
         with c3:
             button_placeholder = st.empty()
             if stt:
-                clicked = button_placeholder.button("Submit")
+                clicked = button_placeholder.button("Submit", type="primary")
                 if clicked:
                     if st.session_state.idx < len(questions)-1:
                         st.session_state.idx += 1
