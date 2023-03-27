@@ -3,6 +3,8 @@ from audio_recorder_streamlit import audio_recorder
 import openai
 import streamlit as st
 
+
+# Page Config
 st.set_page_config(page_title="AI Consulting App")
 hide_default_format = """
        <style>
