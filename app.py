@@ -3,6 +3,15 @@ from audio_recorder_streamlit import audio_recorder
 import openai
 import streamlit as st
 
+st.set_page_config(page_title="AI Consulting App")
+hide_default_format = """
+       <style>
+       #MainMenu {visibility: hidden; }
+       footer {visibility: hidden;}
+       </style>
+       """
+st.markdown(hide_default_format, unsafe_allow_html=True)
+
 
 # API Credentials
 openai.organization = st.secrets["OPENAI_ORG"]
