@@ -85,7 +85,7 @@ def main():
             audio_bytes = audio_recorder(
                             pause_threshold=10.0,
                             text="",
-                            recording_color="#cd0000",
+                            recording_color="#F63366",
                             neutral_color="#000000",
                             icon_name="fa-solid fa-microphone",
                             icon_size="2xl")
