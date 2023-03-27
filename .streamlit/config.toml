@@ -1,7 +1,7 @@
 [theme]
 base = "light"
 # Primary accent for interactive elements
-primaryColor = '#ACEAFF'
+primaryColor = '#FD349C'
 
 # Background color for the main content area
 backgroundColor = '#00338D'
