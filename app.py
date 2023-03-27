@@ -37,16 +37,16 @@ def get_advice(description):
 
 
 def main():
-    st.title("Discover what AI can mean for your business.")
+    st.title("Uncover AI opportunities.")
     st.title("")
 
-    st.header("How would you like to interact?")
+    st.subheader("How would you like to interact?")
     interaction = st.radio("", ("Text", "Speech"), label_visibility="collapsed")
     st.title("")
 
     if interaction == "Text":
-        st.header("Provide a clear description of your business.")
-        st.write('*line of work, key activities, desirable activities, time-consuming, repetitive or error-prone processes, etc.*')
+        st.subheader("Provide a clear description of your business.")
+        st.write('*line of work, key activities, time-consuming, repetitive or error-prone processes, etc.*')
         description = st.text_area(label="",
                                    placeholder="I am a car salesperson. Our company targets the luxurious market segment. We sell premier, high-quality cars in our physical stores, as well as online via our website. We mostly...",
                                    label_visibility="collapsed",
