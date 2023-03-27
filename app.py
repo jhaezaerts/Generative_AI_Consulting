@@ -89,7 +89,7 @@ def main():
         with c3:
             button_placeholder = st.empty()
             if stt:
-                clicked = button_placeholder.button("Submit", type="secondary")
+                clicked = button_placeholder.button("Submit", type="primary")
                 if clicked:
                     if st.session_state.idx < len(questions)-1:
                         st.session_state.idx += 1
