@@ -8,7 +8,7 @@
 
 This streamlit app generates AI-oriented business advice using OpenAI's GPT-3.5-turbo model for chat completion and whisper-1 for speech-to-text conversion.
 
-<br>You have two options to interact with the services, either using text, or using speech.
+<br>You have two ways to interact with the app, using text or speech.
 
 <br>![image](https://user-images.githubusercontent.com/72695808/227738448-f9b1deb7-b06b-4f64-b856-baeb1f196899.png)
 
