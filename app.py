@@ -25,19 +25,23 @@ def get_advice(description):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": "What are 5 key opportunities for AI that can be leveraged based on the "
-                                        "following information: "
+            {"role": "user", "content": "Given the information given here: '"
                                         + description
-                                        + ". Express enthusiasm about the information before listing the opportunities."
-                                        + " However, if the information is unrelated to the description of a business, "
-                                        + " say that you cannot provide valuable opportunities with the given information."}
+                                        + "'. First, show enthusiasm about the business that has been described above... "
+                                          "What are typical tasks performed in this business that are potentially "
+                                          "at risk of being automated by (generative) AI? Sort these task by increasing "
+                                          "difficulty of automation. Next, recommend AI tools and technologies that could"
+                                          "support automation. Lastly, for each task, what are useful tricks, tips or "
+                                          "pitfalls in terms of automating them."
+                                          "If the information given is unrelated to the description of a business, "
+                                          "say that you cannot provide valuable input."}
         ]
     )
     return response['choices'][0]['message']['content']
 
 
 def main():
-    st.title("Uncover AI opportunities.")
+    st.title("Empower your business with AI.")
     st.title("")
 
     st.subheader("How would you like to interact?")
@@ -94,9 +98,9 @@ def main():
         with c2:
             transcript_placeholder = st.empty()
             if audio_bytes:
-                with open('test.wav', mode='bw') as audio_file:
+                with open('response.wav', mode='bw') as audio_file:
                     audio_file.write(audio_bytes)
-                response = open("test.wav", "rb")
+                response = open("response.wav", "rb")
                 stt = openai.Audio.transcribe("whisper-1", response)
                 st.session_state.responses[st.session_state.idx] = stt["text"]
                 transcript_placeholder.write(stt["text"])
