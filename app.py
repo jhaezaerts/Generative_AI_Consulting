@@ -82,13 +82,17 @@ def main():
         question_placeholder.subheader(questions[st.session_state.idx])
         c1, c2, c3 = st.columns([1, 7, 2])
         with c1:
-            audio_bytes = audio_recorder(
-                            pause_threshold=10.0,
-                            text="",
-                            recording_color="#F63366",
-                            neutral_color="#000000",
-                            icon_name="fa-solid fa-microphone",
-                            icon_size="2xl")
+            try:
+                audio_bytes = audio_recorder(
+                                pause_threshold=10.0,
+                                text="",
+                                recording_color="#F63366",
+                                neutral_color="#000000",
+                                icon_name="fa-solid fa-microphone",
+                                icon_size="2xl")
+            except openai.InvalidRequestError:
+                pass
+
         with c2:
             transcript_placeholder = st.empty()
             if audio_bytes:
