@@ -47,7 +47,7 @@ def main():
     if interaction == "Text":
         st.subheader("Provide a clear description of your business.")
         st.write('*line of work, key activities, time-consuming, repetitive or error-prone processes, etc.*')
-        description = st.text_area(label="",
+        description = st.text_area(label="description",
                                    placeholder="I am a car salesperson. Our company targets the luxurious market segment. We sell premier, high-quality cars in our physical stores, as well as online via our website. We mostly...",
                                    label_visibility="collapsed",
                                    height=300)
