@@ -57,7 +57,7 @@ def main():
                     st.markdown("""---""")
                     st.write(get_advice(description))
             else:
-                st.title("")
+                st.markdown("""---""")
                 st.write("I need a description before I can generate advice.")
 
     if interaction == "Speech":
