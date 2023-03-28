@@ -80,6 +80,7 @@ def main():
 
         question_placeholder = st.empty()
         question_placeholder.subheader(questions[st.session_state.idx])
+        st.title("")
         c1, c2, c3 = st.columns([1, 7, 2])
         with c1:
             audio_bytes = audio_recorder(
@@ -88,7 +89,7 @@ def main():
                             recording_color="#F63366",
                             neutral_color="#000000",
                             icon_name="fa-solid fa-microphone",
-                            icon_size="2xl")
+                            icon_size="3x")
 
         with c2:
             transcript_placeholder = st.empty()
@@ -113,21 +114,8 @@ def main():
                     button_placeholder.empty()
                     question_placeholder.subheader(questions[st.session_state.idx])
 
-        st.title("")
-        st.title("")
-        colum1, colum2, colum3 = st.columns(3)
-        with colum2:
-            col1, col2, col3 = st.columns(3)
-            with col2:
-                byytes = audio_recorder(
-                    pause_threshold=10.0,
-                    text="",
-                    recording_color="#F63366",
-                    neutral_color="#000000",
-                    icon_name="fa-solid fa-microphone",
-                    icon_size="3x",
-                    key="test2")
         st.markdown("""---""")
+
         advice_placeholder = st.empty()
         if None not in st.session_state.responses and clicked:
             with st.spinner('Processing your responses...'):
