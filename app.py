@@ -61,6 +61,7 @@ def main():
                 st.write("I need a description before I can generate advice.")
 
     if interaction == "Speech":
+        byytes = None
         stt = None
 
         # initialize questions
@@ -82,20 +83,17 @@ def main():
         question_placeholder.subheader(questions[st.session_state.idx])
         c1, c2, c3 = st.columns([1, 7, 2])
         with c1:
-            try:
-                audio_bytes = audio_recorder(
-                                pause_threshold=10.0,
-                                text="",
-                                recording_color="#F63366",
-                                neutral_color="#000000",
-                                icon_name="fa-solid fa-microphone",
-                                icon_size="2xl")
-            except openai.InvalidRequestError:
-                pass
+            audio_bytes = audio_recorder(
+                            pause_threshold=10.0,
+                            text="",
+                            recording_color="#F63366",
+                            neutral_color="#000000",
+                            icon_name="fa-solid fa-microphone",
+                            icon_size="2xl")
 
         with c2:
             transcript_placeholder = st.empty()
-            if audio_bytes:
+            if byytes:
                 with open('test.wav', mode='bw') as audio_file:
                     audio_file.write(audio_bytes)
                 response = open("test.wav", "rb")
@@ -116,6 +114,20 @@ def main():
                     button_placeholder.empty()
                     question_placeholder.subheader(questions[st.session_state.idx])
 
+        st.title("")
+        st.title("")
+        colum1, colum2, colum3 = st.columns(3)
+        with colum2:
+            col1, col2, col3 = st.columns(3)
+            with col2:
+                byytes = audio_recorder(
+                    pause_threshold=10.0,
+                    text="",
+                    recording_color="#F63366",
+                    neutral_color="#000000",
+                    icon_name="fa-solid fa-microphone",
+                    icon_size="3x",
+                    key="test2")
         st.markdown("""---""")
         advice_placeholder = st.empty()
         if None not in st.session_state.responses and clicked:
