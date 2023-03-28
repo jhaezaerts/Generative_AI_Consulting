@@ -27,13 +27,13 @@ def get_advice(description):
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": "Given the information given here: '"
                                         + description
-                                        + "'. First, show enthusiasm about the business that has been described above... "
+                                        + "'. Express enthusiasm about the business that has been described above... "
                                           "What are typical tasks performed in this business that are potentially "
-                                          "at risk of being automated by (generative) AI? Sort these task by increasing "
+                                          "at risk of being automated by (generative) AI? List these task by increasing "
                                           "difficulty of automation. Next, recommend AI tools and technologies that could"
-                                          "support automation. Lastly, for each task, what are useful tricks, tips or "
-                                          "pitfalls in terms of automating them."
-                                          "If the information given is unrelated to the description of a business, "
+                                          "support automation of these tasks. Lastly, for each task, what are useful "
+                                          "tricks, tips or pitfalls in terms of automating them."
+                                          "If the information given above is unrelated to the description of a business, "
                                           "say that you cannot provide valuable input."}
         ]
     )
