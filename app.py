@@ -61,7 +61,6 @@ def main():
                 st.write("I need a description before I can generate advice.")
 
     if interaction == "Speech":
-        byytes = None
         stt = None
 
         # initialize questions
@@ -93,7 +92,7 @@ def main():
 
         with c2:
             transcript_placeholder = st.empty()
-            if byytes:
+            if audio_bytes:
                 with open('test.wav', mode='bw') as audio_file:
                     audio_file.write(audio_bytes)
                 response = open("test.wav", "rb")
