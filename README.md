@@ -1,8 +1,9 @@
 # **Generate AI business advice with OpenAI Whisper and ChatGPT.**
 
 
-<br>live version of this app at: https://generative-ai-consulting.streamlit.app/
-
+<br>live version of this app at: 
+- https://generative-ai-consulting.streamlit.app/
+- https://genai-bart.azurewebsites.net/
 
 ## Description
 
