@@ -166,9 +166,9 @@ def main():
                 icon_size="2xl")
 
         if submit and message:
-            textbox_placeholder_1.text_area(label="Me", value=message)
             st.session_state.input_message_key = str(random())
             st.experimental_rerun()
+            textbox_placeholder_1.text_area(label="Me", value=message)
             q2 = True
 
         if q2:
