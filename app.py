@@ -146,12 +146,51 @@ def main():
         start_button = st.empty()
         start_button.button("Get started", type="primary")
 
+        # Initialize Q&A
         if username:
             st.session_state.username = username
             username_header.empty()
             username_input.empty()
             start_button.empty()
-            st.write(f'hello {st.session_state.username}')
+
+        questions = [
+            "What line of work are you in?",
+            "What are the key operating activities of your business?",
+            "Are there any processes that are time-consuming or error-prone?",
+            "Are there any areas of your business that you think could benefit from AI?",
+            "What kind of AI tools or technologies are you most interested in exploring?"
+        ]
+
+        q1 = st.empty()
+        r1 = st.empty()
+        q2 = st.empty()
+        r2 = st.empty()
+        q3 = st.empty()
+        r3 = st.empty()
+        q4 = st.empty()
+        r4 = st.empty()
+        q5 = st.empty()
+        r5 = st.empty()
+
+        # Response area
+        c1, c2 = st.columns([25, 2])
+        with c1:
+            message = st.text_input(label="Me",
+                                    label_visibility="collapsed",
+                                    placeholder="Send a message...",
+                                    key=st.session_state.input_message_key)
+        with c2:
+            test = audio_recorder(
+                pause_threshold=10.0,
+                text="",
+                recording_color="#F63366",
+                neutral_color="#000000",
+                icon_name="fa-solid fa-microphone",
+                icon_size="2xl")
+
+        submit = st.button("Submit", type="primary")
+
+
 
 
 
