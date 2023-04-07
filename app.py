@@ -134,6 +134,7 @@ def main():
             advice_placeholder.empty()
 
     if interaction == "Test":
+        q1 = False
         q2 = False
 
         st.text_area(label="BART",
@@ -166,12 +167,17 @@ def main():
                 icon_size="2xl")
 
         if submit and message:
+            if "q1" not in st.session_state:
+                st.session_state.q1 = True
             if "r1" not in st.session_state:
                 st.session_state.response1 = message
             if "q2" not in st.session_state:
                 st.session_state.q2 = True
             st.session_state.input_message_key = str(random())
+            q1 = st.session_state.q1
             st.experimental_rerun()
+
+        if q1:
             textbox_placeholder_1.text_area(label="Me", value=st.session_state.r1, key="response1")
             q2 = st.session_state.q2
 
