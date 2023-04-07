@@ -157,8 +157,8 @@ def main():
             textbox_placeholder.text_area(label="response", value='Me -\t ' + message, label_visibility="collapsed")
 
         if textbox_placeholder:
-            st.text_area(label="BART",
-                         value="What are the key operating activities of your business?")
+            another_textbox_placeholder.text_area(label="BART",
+                                                  value="What are the key operating activities of your business?")
 
 if __name__ == "__main__":
     main()
