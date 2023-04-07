@@ -168,7 +168,7 @@ def main():
                 icon_name="fa-solid fa-microphone",
                 icon_size="2xl")
 
-        if submit and message:
+        if submit:
             st.session_state.q1 = True
             st.session_state.q2 = True
             if "r1" not in st.session_state:
@@ -180,9 +180,7 @@ def main():
             textbox_placeholder_1.text_area(label="Me", value=st.session_state.r1, key="response1")
 
         if st.session_state.q2:
-            val = "What are the key operating activities of your business?"
-            for i in range(len(val)):
-                textbox_placeholder_2.text_area(label="BART", value=val[:i])
+            textbox_placeholder_2.text_area(label="BART", value="What are the key operating activities of your business?")
 
 
 if __name__ == "__main__":
