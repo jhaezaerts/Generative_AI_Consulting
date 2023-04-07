@@ -152,7 +152,7 @@ def main():
         submit = st.button("Submit", type="primary")
 
         if submit and message:
-            textbox_placeholder.text_area(label="response", value='*Me*: ' + message, label_visibility="collapsed")
+            textbox_placeholder.text_area(label="response", value='**Me**: ' + message, label_visibility="collapsed")
 
 if __name__ == "__main__":
     main()
