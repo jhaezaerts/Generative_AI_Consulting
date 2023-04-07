@@ -134,7 +134,7 @@ def main():
             advice_placeholder.empty()
 
     if interaction == "Test":
-        q1 = False
+        st.session_state.q1 = False
         q2 = False
 
         st.text_area(label="BART",
@@ -167,8 +167,7 @@ def main():
                 icon_size="2xl")
 
         if submit and message:
-            if "q1" not in st.session_state:
-                st.session_state.q1 = True
+            st.session_state.q1 = True
             if "r1" not in st.session_state:
                 st.session_state.r1 = message
             if "q2" not in st.session_state:
