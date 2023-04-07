@@ -134,8 +134,10 @@ def main():
             advice_placeholder.empty()
 
     if interaction == "Test":
-        st.session_state.q1 = False
-        q2 = False
+        if "q1" not in st.session_state:
+            st.session_state.q1 = False
+        if "q2" not in st.session_state:
+            st.session_state.q2 = False
 
         st.text_area(label="BART",
                      value="What line of work are you in?")
@@ -168,12 +170,10 @@ def main():
 
         if submit and message:
             st.session_state.q1 = True
+            st.session_state.q2 = True
             if "r1" not in st.session_state:
                 st.session_state.r1 = message
-            if "q2" not in st.session_state:
-                st.session_state.q2 = True
             st.session_state.input_message_key = str(random())
-            q1 = st.session_state.q1
             st.experimental_rerun()
 
         if st.session_state.q1:
