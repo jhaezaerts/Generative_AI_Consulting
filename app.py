@@ -182,11 +182,10 @@ def main():
                 st.session_state.input_message_key = str(random())
             c1, c2 = st.columns([25, 2])
             with c1:
-                message_placeholder = st.empty()
-                message = message_placeholder.text_input(label="Me",
-                                                         label_visibility="collapsed",
-                                                         placeholder="Send a message...",
-                                                         key=st.session_state.input_message_key)
+                message = st.text_input(label="Me",
+                                        label_visibility="collapsed",
+                                        placeholder="Send a message...",
+                                        key=st.session_state.input_message_key)
             with c2:
                 bytes = audio_recorder(
                     pause_threshold=10.0,
