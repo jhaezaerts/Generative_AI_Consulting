@@ -138,11 +138,13 @@ def main():
         textbox_placeholder = st.empty()
         another_textbox_placeholder = st.empty()
 
-        c1, c2 = st.columns([25, 2])
-        with c1:
-            message = st.text_input(label="Me",
+
+        message = st.text_input(label="Me",
                                     placeholder="Send a message...",
                                     key="text_input")
+        c1, c2, c3 = st.columns([2, 2, 20])
+        with c1:
+            submit = st.button("Submit", type="primary")
         with c2:
             test = audio_recorder(
                 pause_threshold=10.0,
@@ -151,7 +153,6 @@ def main():
                 neutral_color="#000000",
                 icon_name="fa-solid fa-microphone",
                 icon_size="2xl")
-        submit = st.button("Submit", type="primary")
 
         if submit and message:
             textbox_placeholder.text_area(label="response", value='Me -\t ' + message, label_visibility="collapsed")
