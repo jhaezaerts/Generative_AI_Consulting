@@ -244,6 +244,7 @@ def main():
                 r5.text_area(label=username, value=st.session_state.responses[4], key='r5.5')
 
             if submit:
+                st.write(st.session_state.index)
                 st.session_state.responses[st.session_state.index] = message
                 if st.session_state.index == 5:
                     st.session_state.index = 0
