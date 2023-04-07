@@ -329,7 +329,7 @@ def main():
                 line8.markdown("""___""")
                 bart5.write("**BART**")
                 q5.write(questions[4])
-                st.markdown("""___""")
+                line9.markdown("""___""")
                 user5.write("**" + username + "**")
                 r5.write(st.session_state.responses[4])
 
