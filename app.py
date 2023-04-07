@@ -57,29 +57,7 @@ def main():
                           label_visibility="collapsed",
                           key="text_input")
         with c2:
-            # Define the CSS styles for the custom button
-            button_style = """
-                            background-color: #4CAF50; /* Green */
-                            border: none;
-                            color: white;
-                            padding: 15px 32px;
-                            text-align: center;
-                            text-decoration: none;
-                            display: inline-block;
-                            font-size: 16px;
-                            border-radius: 10px;
-                            """
-
-            # Define the HTML code for the custom button icon
-            button_icon = """
-                            <i class="fas fa-search"></i>
-                          """
-
-            # Use the `components` feature to render the custom button on the Streamlit app
-            button_clicked = st.button(label=button_icon, unsafe_allow_html=True, key="search_button", help="Search")
-
-            # Use CSS to apply the custom styles to the button
-            st.markdown(f"""<style>.stButton.custom-button {{ {button_style} }}</style>""", unsafe_allow_html=True)
+            st.button('<i class="fa-solid fa-trash"/>', unsafe_allow_html=True)
 
         st.subheader("Provide a clear description of your business.")
         st.write('*line of work, key activities, time-consuming, repetitive or error-prone processes, etc.*')
