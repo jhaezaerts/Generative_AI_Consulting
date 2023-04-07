@@ -132,14 +132,11 @@ def main():
             advice_placeholder.empty()
 
     if interaction == "Test":
+
         st.text_area(label="BART",
                      value="What line of work are you in?")
         textbox_placeholder = st.empty()
-
-        footer = st.footer("this is my footer")
-        with footer:
-            st.button("footerbutton")
-
+        another_textbox_placeholder = st.empty()
 
         c1, c2 = st.columns([25, 2])
         with c1:
@@ -159,6 +156,9 @@ def main():
         if submit and message:
             textbox_placeholder.text_area(label="response", value='Me -\t ' + message, label_visibility="collapsed")
 
+        if textbox_placeholder:
+            st.text_area(label="BART",
+                         value="What are the key operating activities of your business?")
 
 if __name__ == "__main__":
     main()
