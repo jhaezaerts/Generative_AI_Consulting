@@ -144,7 +144,7 @@ def main():
 
         if username:
             if "username" not in st.session_state:
-                st.session_state.username = username_input
+                st.session_state.username = username
             username_header.empty()
             username_input.empty()
             start_button.empty()
