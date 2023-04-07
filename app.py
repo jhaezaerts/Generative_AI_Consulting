@@ -1,4 +1,6 @@
 # Imports
+from random import random
+
 from audio_recorder_streamlit import audio_recorder
 import openai
 import streamlit as st
@@ -142,9 +144,14 @@ def main():
         textbox_placeholder_4 = st.empty()
         textbox_placeholder_5 = st.empty()
 
+        if "variables_setup" not in st.session_state:
+            st.session_state["variables_setup"] = True
+            st.session_state.input_message_key = str(random())
+
         message = st.text_input(label="Me",
-                                    placeholder="Send a message...",
-                                    key="text_input")
+                                label_visibility="collapsed",
+                                placeholder="Send a message...",
+                                key=st.session_state.input_message_key)
 
         c1, c2, c3 = st.columns([4, 2, 20])
         with c1:
@@ -160,6 +167,8 @@ def main():
 
         if submit and message:
             textbox_placeholder_1.text_area(label="Me", value=message)
+            st.session_state.input_message_key = str(random())
+            st.experimental_rerun()
             q2 = True
 
         if q2:
