@@ -245,7 +245,10 @@ def main():
                 r5.text_area(label=username, value=st.session_state.responses[4], key='r5.5')
 
             if submit:
-                st.session_state.index += 1
+                if st.session_state.index == 5:
+                    st.session_state.index = 0
+                else:
+                    st.session_state.index += 1
                 st.session_state.responses[st.session_state.index] = message
                 st.session_state.input_message_key = str(random())
                 st.experimental_rerun()
