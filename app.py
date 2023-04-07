@@ -132,7 +132,8 @@ def main():
             advice_placeholder.empty()
 
     if interaction == "Test":
-
+        st.text_area(label="BART",
+                     value="What line of work are you in?")
         textbox_placeholder = st.empty()
 
         c1, c2 = st.columns([25, 2])
