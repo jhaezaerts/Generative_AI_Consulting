@@ -46,27 +46,10 @@ def main():
     st.title("")
 
     st.subheader("How would you like to interact?")
-    interaction = st.radio("", ("Text", "Speech"), label_visibility="collapsed")
+    interaction = st.radio("", ("Text", "Speech", "Test"), label_visibility="collapsed")
     st.title("")
 
     if interaction == "Text":
-        c1, c2 = st.columns([25,2])
-        with c1:
-            message = st.text_input(label="message",
-                                    placeholder="Send a message...",
-                                    label_visibility="collapsed",
-                                    key="text_input")
-        with c2:
-            test = audio_recorder(
-                pause_threshold=10.0,
-                text="",
-                recording_color="#F63366",
-                neutral_color="#000000",
-                icon_name="fa-solid fa-microphone",
-                icon_size="2xl")
-        st.button("Submit", type="primary")
-
-
         st.subheader("Provide a clear description of your business.")
         st.write('*line of work, key activities, time-consuming, repetitive or error-prone processes, etc.*')
         description = st.text_area(label="description",
@@ -148,6 +131,28 @@ def main():
         else:
             advice_placeholder.empty()
 
+    if interaction == "Test":
+
+        textbox_placeholder = st.empty()
+
+        c1, c2 = st.columns([25, 2])
+        with c1:
+            message = st.text_input(label="message",
+                                    placeholder="Send a message...",
+                                    label_visibility="collapsed",
+                                    key="text_input")
+        with c2:
+            test = audio_recorder(
+                pause_threshold=10.0,
+                text="",
+                recording_color="#F63366",
+                neutral_color="#000000",
+                icon_name="fa-solid fa-microphone",
+                icon_size="2xl")
+        submit = st.button("Submit", type="primary")
+
+        if submit and message:
+            textbox_placeholder.text_area(message)
 
 if __name__ == "__main__":
     main()
