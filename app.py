@@ -57,7 +57,10 @@ def main():
                           label_visibility="collapsed",
                           key="text_input")
         with c2:
-            st.button('<i class="fa-solid fa-trash"/>', unsafe_allow_html=True)
+
+            button_label = '<i class="fa-regular fa-paper-plane"></i> Submit'
+            button_clicked = st.button(label=button_label, key='submit_button')
+            st.markdown('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">', unsafe_allow_html=True)
 
         st.subheader("Provide a clear description of your business.")
         st.write('*line of work, key activities, time-consuming, repetitive or error-prone processes, etc.*')
