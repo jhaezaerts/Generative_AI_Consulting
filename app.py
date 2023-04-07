@@ -182,7 +182,8 @@ def main():
                 st.session_state.input_message_key = str(random())
             c1, c2 = st.columns([25, 2])
             with c1:
-                message = st.text_input(label="Me",
+                message_placeholder = st.empty()
+                message = message_placeholder.text_input(label="Me",
                                         label_visibility="collapsed",
                                         placeholder="Send a message...",
                                         key=st.session_state.input_message_key)
@@ -194,8 +195,8 @@ def main():
                     neutral_color="#000000",
                     icon_name="fa-solid fa-microphone",
                     icon_size="2xl")
-
-            submit = st.button("Submit", type="primary")
+            submit_placeholder = st.empty()
+            submit = submit_placeholder.button("Submit", type="primary")
 
             # Question processing
             if "index" not in st.session_state:
@@ -242,6 +243,8 @@ def main():
                 r4.text_area(label=username, value=st.session_state.responses[3], key='r4.5')
                 q5.text_area(label="BART", value=questions[4], key='q5.5')
                 r5.text_area(label=username, value=st.session_state.responses[4], key='r5.5')
+
+
 
             if submit:
                 st.write(st.session_state.index)
