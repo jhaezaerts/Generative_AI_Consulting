@@ -138,17 +138,17 @@ def main():
         username_header = st.empty()
         username_header.subheader("Enter a username")
         username_input = st.empty()
-        username_input.text_input(label="username", label_visibility="collapsed")
+        username = username_input.text_input(label="username", label_visibility="collapsed")
         start_button = st.empty()
         start_button.button("Get started", type="primary")
 
-        # if username_input:
-        #     if "username" not in st.session_state:
-        #         st.session_state.username = username_input
-        #     username_header.empty()
-        #     username_input.empty()
-        #     start_button.empty()
-        #     st.write(f'hello {st.session_state.username}')
+        if username:
+            if "username" not in st.session_state:
+                st.session_state.username = username_input
+            username_header.empty()
+            username_input.empty()
+            start_button.empty()
+            st.write(f'hello {st.session_state.username}')
 
 
 
