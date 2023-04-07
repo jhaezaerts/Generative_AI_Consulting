@@ -222,6 +222,7 @@ def main():
                 q1.write(questions[0])
                 user1.write("**" + username + "**")
                 r1.write(st.session_state.responses[0])
+                time.sleep(2)
                 bart2.write("**BART**")
                 q2.write(questions[1])
             if st.session_state.index == 2:
