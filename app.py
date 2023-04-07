@@ -154,7 +154,7 @@ def main():
             start_button.empty()
 
             questions = [
-                f"Hi {username}, what line of work are you in?",
+                f"Hello {username}, what line of work are you in?",
                 "What are the key operating activities of your business?",
                 "Are there any processes that are time-consuming or error-prone?",
                 "Are there any areas of your business that you think could benefit from AI?",
@@ -206,8 +206,8 @@ def main():
 
             if st.session_state.index == 0:
                 q1.text_area(label="BART", value=questions[0], key='q1.0', disabled=True)
-                st.write("**BART**")
-                st.write(questions[0])
+                q1.write("**BART**")
+                q1.write(questions[0])
             if st.session_state.index == 1:
                 q1.text_area(label="BART", value=questions[0], key='q1.1')
                 r1.text_area(label=username, value=st.session_state.responses[0], key='r1.1')
