@@ -173,6 +173,7 @@ def main():
             r5 = st.empty()
 
             # Response area
+            st.markdown("""___""")
             if "session" not in st.session_state:
                 st.session_state["session"] = True
                 st.session_state.input_message_key = str(random())
