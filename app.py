@@ -50,7 +50,7 @@ def main():
     st.title("")
 
     if interaction == "Text":
-        c1, c2, c3 = st.columns([12,2,2])
+        c1, c2, c3 = st.columns([13,2,2])
         with c1:
             st.text_input(label="message",
                           placeholder="Send a message...",
