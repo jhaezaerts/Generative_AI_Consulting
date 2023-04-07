@@ -176,7 +176,7 @@ def main():
             st.session_state.input_message_key = str(random())
             q1 = st.session_state.q1
             st.experimental_rerun()
-
+        st.write(q1)
         if q1:
             textbox_placeholder_1.text_area(label="Me", value=st.session_state.r1, key="response1")
             q2 = st.session_state.q2
