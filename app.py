@@ -211,7 +211,7 @@ def main():
                 q1.text_area(label="BART", value=questions[0], key='q1.2')
                 r1.text_area(label=username, value=st.session_state.responses[0], key='r1.2')
                 q2.text_area(label="BART", value=questions[1], key='q2.2')
-                r2.text_area(label=username, value=st.session_state.responses[0], key='r2.2')
+                r2.text_area(label=username, value=st.session_state.responses[1], key='r2.2')
                 q3.text_area(label="BART", value=questions[2], key='q3.2')
             if st.session_state.index == 3:
                 q1.text_area(label="BART", value=questions[0], key='q1.3')
@@ -244,11 +244,11 @@ def main():
                 r5.text_area(label=username, value=st.session_state.responses[4], key='r5.5')
 
             if submit:
+                st.session_state.responses[st.session_state.index] = message
                 if st.session_state.index == 5:
                     st.session_state.index = 0
                 else:
                     st.session_state.index += 1
-                st.session_state.responses[st.session_state.index] = message
                 st.session_state.input_message_key = str(random())
                 st.experimental_rerun()
 
