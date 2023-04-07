@@ -161,6 +161,9 @@ def main():
                 "What kind of AI tools or technologies are you most interested in exploring?"
             ]
 
+            if "responses" not in st.session_state:
+                st.session_state.responses = [None] * 5
+
             q1 = st.empty()
             r1 = st.empty()
             q2 = st.empty()
@@ -194,9 +197,60 @@ def main():
 
             submit = st.button("Submit", type="primary")
 
+            # Question processing
+            if "index" not in st.session_state:
+                st.session_state.index = 0
+
+            while st.session_state.index <= 5:
+                if st.session_state.index == 0:
+                    q1.text_area(label="BART", value=questions[0])
+                if st.session_state.index == 1:
+                    q1.text_area(label="BART", value=questions[0])
+                    r1.text_area(label=username, value=st.session_state.responses[0])
+                    q2.text_area(label="BART", value=questions[1])
+                if st.session_state.index == 2:
+                    q1.text_area(label="BART", value=questions[0])
+                    r1.text_area(label=username, value=st.session_state.responses[0])
+                    q2.text_area(label="BART", value=questions[1])
+                    r2.text_area(label=username, value=st.session_state.responses[0])
+                    q3.text_area(label="BART", value=questions[2])
+                if st.session_state.index == 3:
+                    q1.text_area(label="BART", value=questions[0])
+                    r1.text_area(label=username, value=st.session_state.responses[0])
+                    q2.text_area(label="BART", value=questions[1])
+                    r2.text_area(label=username, value=st.session_state.responses[1])
+                    q3.text_area(label="BART", value=questions[2])
+                    r3.text_area(label=username, value=st.session_state.responses[2])
+                    q4.text_area(label="BART", value=questions[3])
+                if st.session_state.index == 4:
+                    q1.text_area(label="BART", value=questions[0])
+                    r1.text_area(label=username, value=st.session_state.responses[0])
+                    q2.text_area(label="BART", value=questions[1])
+                    r2.text_area(label=username, value=st.session_state.responses[1])
+                    q3.text_area(label="BART", value=questions[2])
+                    r3.text_area(label=username, value=st.session_state.responses[2])
+                    q4.text_area(label="BART", value=questions[3])
+                    r4.text_area(label=username, value=st.session_state.responses[3])
+                    q5.text_area(label="BART", value=questions[4])
+                if st.session_state.index == 4:
+                    q1.text_area(label="BART", value=questions[0])
+                    r1.text_area(label=username, value=st.session_state.responses[0])
+                    q2.text_area(label="BART", value=questions[1])
+                    r2.text_area(label=username, value=st.session_state.responses[1])
+                    q3.text_area(label="BART", value=questions[2])
+                    r3.text_area(label=username, value=st.session_state.responses[2])
+                    q4.text_area(label="BART", value=questions[3])
+                    r4.text_area(label=username, value=st.session_state.responses[3])
+                    q5.text_area(label="BART", value=questions[4])
+                    r5.text_area(label=username, value=st.session_state.responses[4])
+
             if submit:
+                st.session_state.responses[st.session_state.index] = message
                 st.session_state.input_message_key = str(random())
                 st.experimental_rerun()
+                st.session_state.index += 1
+
+
 
 
 
