@@ -52,15 +52,16 @@ def main():
     if interaction == "Text":
 
         text_input = st.text_input(label="message",
-                                  placeholder="Send a message...",
-                                  label_visibility="collapsed")
+                                   placeholder="Send a message...",
+                                   label_visibility="collapsed")
 
         js_code = f"""
                     <script>
                         const textInput = document.getElementById("text_input");
+                        textInput.style.height = "auto";
                         textInput.addEventListener("input", function() {{
                             textInput.style.height = "auto";
-                            textInput.style.height = (textInput.scrollHeight + 2) + "px";
+                            textInput.style.height = textInput.scrollHeight + "px";
                         }});
                     </script>
                     """
