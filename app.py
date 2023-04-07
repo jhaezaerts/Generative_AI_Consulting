@@ -49,6 +49,10 @@ def main():
     st.title("")
 
     if interaction == "Text":
+        st.text_area(label="question",
+                     value="What line of work are you in?",
+                     label_visibility="collapsed")
+
         st.subheader("Provide a clear description of your business.")
         st.write('*line of work, key activities, time-consuming, repetitive or error-prone processes, etc.*')
         description = st.text_area(label="description",
