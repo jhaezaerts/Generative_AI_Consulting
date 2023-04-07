@@ -180,7 +180,9 @@ def main():
             textbox_placeholder_1.text_area(label="Me", value=st.session_state.r1, key="response1")
 
         if st.session_state.q2:
-            textbox_placeholder_2.text_area(label="BART", value="What are the key operating activities of your business?")
+            val = "What are the key operating activities of your business?"
+            for i in range(len(val)):
+                textbox_placeholder_2.text_area(label="BART", value=val[:i])
 
 
 if __name__ == "__main__":
