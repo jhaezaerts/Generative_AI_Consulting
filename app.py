@@ -173,6 +173,9 @@ def main():
         r5 = st.empty()
 
         # Response area
+        if "session" not in st.session_state:
+            st.session_state["session"] = True
+            st.session_state.input_message_key = str(random())
         c1, c2 = st.columns([25, 2])
         with c1:
             message = st.text_input(label="Me",
@@ -190,6 +193,9 @@ def main():
 
         submit = st.button("Submit", type="primary")
 
+        if submit:
+            st.session_state.input_message_key = str(random())
+            st.experimental_rerun()
 
 
 
