@@ -135,12 +135,20 @@ def main():
             advice_placeholder.empty()
 
     if interaction == "Test":
-        st.subheader("Enter a username")
-        username = st.text_input(label="username", label_visibility="collapsed")
-        st.button("Get started")
+        username_header = st.empty()
+        username_header.subheader("Enter a username")
+        username_input = st.empty()
+        username_input.text_input(label="username", label_visibility="collapsed")
+        start_button = st.empty()
+        start_button.button("Get started", type="primary")
 
-        if username:
-            st.write(f'hello {username}')
+        if username_input:
+            if "username" not in st.session_state:
+                st.session_state.username = username_input
+            username_header.empty()
+            username_input.empty()
+            start_button.empty()
+            st.write(f'hello {st.session_state.username}')
 
 
 
