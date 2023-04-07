@@ -63,7 +63,7 @@ def main():
                 recording_color="#F63366",
                 neutral_color="#000000",
                 icon_name="fa-solid fa-microphone",
-                icon_size="xl")
+                icon_size="2xl")
         st.button("Submit", type="primary")
 
 
