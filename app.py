@@ -135,6 +135,10 @@ def main():
             advice_placeholder.empty()
 
     if interaction == "Test":
+        
+        # Ask for a username
+        if "username" not in st.session_state:
+            st.session_state.username = ""
         username_header = st.empty()
         username_header.subheader("Enter a username")
         username_input = st.empty()
@@ -143,8 +147,7 @@ def main():
         start_button.button("Get started", type="primary")
 
         if username:
-            if "username" not in st.session_state:
-                st.session_state.username = username
+            st.session_state.username = username
             username_header.empty()
             username_input.empty()
             start_button.empty()
