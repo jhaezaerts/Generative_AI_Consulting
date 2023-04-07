@@ -50,7 +50,7 @@ def main():
 
     if interaction == "Text":
 
-        text_input = st.text_area(label="message",
+        text_input = st.text_input(label="message",
                                   placeholder="Send a message...",
                                   label_visibility="collapsed")
 
