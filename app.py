@@ -49,10 +49,10 @@ def main():
     st.title("")
 
     st.subheader("How would you like to interact?")
-    interaction = st.radio("", ("Text", "Speech", "Test"), label_visibility="collapsed")
+    interaction = st.radio("", ("Text - Pitch", "Speech - Q&A", "Text & Speech - Chat"), label_visibility="collapsed")
     st.title("")
 
-    if interaction == "Text":
+    if interaction == "Text - Pitch":
         st.subheader("Provide a clear description of your business.")
         st.write('*line of work, key activities, time-consuming, repetitive or error-prone processes, etc.*')
         description = st.text_area(label="description",
@@ -68,7 +68,7 @@ def main():
                 st.markdown("""---""")
                 st.write("I need a description before I can generate advice.")
 
-    if interaction == "Speech":
+    if interaction == "Speech - Q&A":
         stt = None
 
         # initialize questions
@@ -134,7 +134,7 @@ def main():
         else:
             advice_placeholder.empty()
 
-    if interaction == "Test":
+    if interaction == "Text & Speech - Chat":
         
         # Ask for a username
         if "username" not in st.session_state:
