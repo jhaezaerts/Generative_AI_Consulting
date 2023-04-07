@@ -206,6 +206,8 @@ def main():
 
             if st.session_state.index == 0:
                 q1.text_area(label="BART", value=questions[0], key='q1.0', disabled=True)
+                st.write("**BART**")
+                st.write(questions[0])
             if st.session_state.index == 1:
                 q1.text_area(label="BART", value=questions[0], key='q1.1')
                 r1.text_area(label=username, value=st.session_state.responses[0], key='r1.1')
