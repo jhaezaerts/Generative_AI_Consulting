@@ -170,7 +170,7 @@ def main():
             if "q1" not in st.session_state:
                 st.session_state.q1 = True
             if "r1" not in st.session_state:
-                st.session_state.response1 = message
+                st.session_state.r1 = message
             if "q2" not in st.session_state:
                 st.session_state.q2 = True
             st.session_state.input_message_key = str(random())
