@@ -155,8 +155,8 @@ def main():
 
         if submit and message:
             textbox_placeholder.text_area(label="response", value='Me -\t ' + message, label_visibility="collapsed")
-
-        if textbox_placeholder:
+        st.write(textbox_placeholder)
+        if textbox_pl:
             another_textbox_placeholder.text_area(label="BART",
                                                   value="What are the key operating activities of your business?")
 
