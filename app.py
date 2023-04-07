@@ -53,7 +53,8 @@ def main():
 
         text_input = st.text_input(label="message",
                                    placeholder="Send a message...",
-                                   label_visibility="collapsed")
+                                   label_visibility="collapsed",
+                                   key="text_input")
 
         js_code = f"""
                     <script>
