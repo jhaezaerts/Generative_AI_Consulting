@@ -2,6 +2,7 @@
 from audio_recorder_streamlit import audio_recorder
 import openai
 import streamlit as st
+import streamlit.components.v1
 
 
 # Page Config
@@ -54,11 +55,16 @@ def main():
                                   placeholder="Send a message...",
                                   label_visibility="collapsed")
 
-        st.write(f"""<style>
-                        div.stTextarea > textarea {{
-                            height: {len(text_input) * 1.5}px;
-                        }}
-                    </style>""", unsafe_allow_html=True)
+        js_code = f"""
+                    <script>
+                        const textInput = document.getElementById("text_input");
+                        textInput.addEventListener("input", function() {{
+                            textInput.style.height = "auto";
+                            textInput.style.height = (textInput.scrollHeight + 2) + "px";
+                        }});
+                    </script>
+                    """
+        st.components.v1.html(js_code)
 
         st.subheader("Provide a clear description of your business.")
         st.write('*line of work, key activities, time-consuming, repetitive or error-prone processes, etc.*')
