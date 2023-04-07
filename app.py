@@ -50,14 +50,16 @@ def main():
     st.title("")
 
     if interaction == "Text":
-        c1, c2 = st.columns([9,1])
+        c1, c2, c3 = st.columns([9,1,1])
         with c1:
             st.text_input(label="message",
                           placeholder="Send a message...",
                           label_visibility="collapsed",
                           key="text_input")
         with c2:
-            st.button(label=st.image('paper-plane-regular.jpg'))
+            st.button('Submit')
+        with c3:
+            st.button('Record')
 
 
         st.subheader("Provide a clear description of your business.")
