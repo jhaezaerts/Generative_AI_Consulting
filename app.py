@@ -246,7 +246,7 @@ def main():
                 q5.text_area(label="BART", value=questions[4], key='q5.5')
                 r5.text_area(label=username, value=st.session_state.responses[4], key='r5.5')
                 message_placeholder.empty()
-                button_placeholder.empty()
+                submit_placeholder.empty()
                 audio_container.empty()
 
             if submit:
