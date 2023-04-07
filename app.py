@@ -1,4 +1,5 @@
 # Imports
+import time
 from random import random
 
 from audio_recorder_streamlit import audio_recorder
@@ -156,9 +157,12 @@ def main():
                                 placeholder="Send a message...",
                                 key=st.session_state.input_message_key)
 
-        c1, c2, c3 = st.columns([4, 2, 20])
+        c1, c2 = st.columns([25, 2])
         with c1:
-            submit = st.button("Submit", type="primary")
+            message = st.text_input(label="Me",
+                                    label_visibility="collapsed",
+                                    placeholder="Send a message...",
+                                    key=st.session_state.input_message_key)
         with c2:
             test = audio_recorder(
                 pause_threshold=10.0,
@@ -167,6 +171,8 @@ def main():
                 neutral_color="#000000",
                 icon_name="fa-solid fa-microphone",
                 icon_size="2xl")
+
+        submit = st.button("Submit", type="primary")
 
         if submit:
             st.session_state.q1 = True
@@ -180,6 +186,7 @@ def main():
             textbox_placeholder_1.text_area(label="Me", value=st.session_state.r1, key="response1")
 
         if st.session_state.q2:
+            time.sleep(1)
             textbox_placeholder_2.text_area(label="BART", value="What are the key operating activities of your business?")
 
 
