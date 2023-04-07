@@ -247,13 +247,12 @@ def main():
                 st.session_state.responses[st.session_state.index] = message
                 if st.session_state.index == 5:
                     st.session_state.index = 0
+                    st.session_state.responses = [None] * 5
                 else:
                     st.session_state.index += 1
                 st.session_state.input_message_key = str(random())
                 st.experimental_rerun()
 
-            if st.session_state.index == 5:
-                st.session_state.index = 0
 
 
 
