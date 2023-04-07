@@ -150,7 +150,7 @@ def main():
         if "variables_setup" not in st.session_state:
             st.session_state["variables_setup"] = True
             st.session_state.input_message_key = str(random())
-
+        st.markdown("""___""")
         message = st.text_input(label="Me",
                                 label_visibility="collapsed",
                                 placeholder="Send a message...",
