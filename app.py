@@ -50,16 +50,21 @@ def main():
     st.title("")
 
     if interaction == "Text":
-        c1, c2, c3 = st.columns([12,2,2])
+        c1, c2 = st.columns([10,2])
         with c1:
             message = st.text_input(label="message",
                                     placeholder="Send a message...",
                                     label_visibility="collapsed",
                                     key="text_input")
         with c2:
-            st.button('Submit')
-        with c3:
-            st.button('Record')
+            test = audio_recorder(
+                pause_threshold=10.0,
+                text="",
+                recording_color="#F63366",
+                neutral_color="#000000",
+                icon_name="fa-solid fa-microphone",
+                icon_size="xs")
+        st.button("Submit", type="primary")
 
 
         st.subheader("Provide a clear description of your business.")
