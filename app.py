@@ -194,8 +194,8 @@ def main():
                     neutral_color="#000000",
                     icon_name="fa-solid fa-microphone",
                     icon_size="2xl")
-            submit_placeholder = st.empty()
-            submit = submit_placeholder.button("Submit", type="primary")
+
+            submit = st.button("Submit", type="primary")
 
             # Question processing
             if "index" not in st.session_state:
