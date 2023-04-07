@@ -49,9 +49,16 @@ def main():
     st.title("")
 
     if interaction == "Text":
-        st.text_area(label="question",
-                     value="What line of work are you in?",
-                     label_visibility="collapsed")
+
+        text_input = st.text_area(label="message",
+                                  placeholder="Send a message...",
+                                  label_visibility="collapsed")
+
+        st.write(f"""<style>
+                        div.stTextarea > textarea {{
+                            height: {len(text_input) * 1.5}px;
+                        }}
+                    </style>""", unsafe_allow_html=True)
 
         st.subheader("Provide a clear description of your business.")
         st.write('*line of work, key activities, time-consuming, repetitive or error-prone processes, etc.*')
