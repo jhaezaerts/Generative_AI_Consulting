@@ -231,7 +231,7 @@ def main():
                 q4.text_area(label="BART", value=questions[3], key='q4.4')
                 r4.text_area(label=username, value=st.session_state.responses[3], key='r4.4')
                 q5.text_area(label="BART", value=questions[4], key='q5.4')
-            if st.session_state.index == 4:
+            if st.session_state.index == 5:
                 q1.text_area(label="BART", value=questions[0], key='q1.5')
                 r1.text_area(label=username, value=st.session_state.responses[0], key='r1.5')
                 q2.text_area(label="BART", value=questions[1], key='q2.5')
