@@ -166,11 +166,14 @@ def main():
                 icon_size="2xl")
 
         if submit and message:
-            st.session_state["dialogue1"] = message
+            if "r1" not in st.session_state:
+                st.session_state.response1 = message
+            if "q2" not in st.session_state:
+                st.session_state.q2 = True
             st.session_state.input_message_key = str(random())
             st.experimental_rerun()
-            textbox_placeholder_1.text_area(label="Me", value=message, key="dialogue1")
-            q2 = True
+            textbox_placeholder_1.text_area(label="Me", value=st.session_state.r1, key="response1")
+            q2 = st.session_state.q2
 
         if q2:
             textbox_placeholder_2.text_area(label="BART", value="What are the key operating activities of your business?")
