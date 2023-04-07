@@ -132,16 +132,20 @@ def main():
             advice_placeholder.empty()
 
     if interaction == "Test":
+        q2 = False
 
         st.text_area(label="BART",
                      value="What line of work are you in?")
-        textbox_placeholder = st.empty()
-        another_textbox_placeholder = st.empty()
-
+        textbox_placeholder_1 = st.empty()
+        textbox_placeholder_2 = st.empty()
+        textbox_placeholder_3 = st.empty()
+        textbox_placeholder_4 = st.empty()
+        textbox_placeholder_5 = st.empty()
 
         message = st.text_input(label="Me",
                                     placeholder="Send a message...",
                                     key="text_input")
+
         c1, c2, c3 = st.columns([4, 2, 20])
         with c1:
             submit = st.button("Submit", type="primary")
@@ -155,7 +159,12 @@ def main():
                 icon_size="2xl")
 
         if submit and message:
-            textbox_placeholder.text_area(label="response", value='Me -\t ' + message, label_visibility="collapsed")
+            textbox_placeholder_1.text_area(label="Me", value=message)
+            q2 = True
+
+        if q2:
+            textbox_placeholder_2.text_area(label="BART", value="What are the key operating activities of your business?")
+
 
 if __name__ == "__main__":
     main()
