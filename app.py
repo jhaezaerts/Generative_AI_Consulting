@@ -142,7 +142,7 @@ def main():
         message = st.text_input(label="Me",
                                     placeholder="Send a message...",
                                     key="text_input")
-        c1, c2, c3 = st.columns([3, 2, 20])
+        c1, c2, c3 = st.columns([4, 2, 20])
         with c1:
             submit = st.button("Submit", type="primary")
         with c2:
