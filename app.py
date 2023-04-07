@@ -188,14 +188,13 @@ def main():
                                                          placeholder="Send a message...",
                                                          key=st.session_state.input_message_key)
             with c2:
-                audio_placeholder = st.empty()
-                audio_placeholder.write(audio_recorder(
+                bytes = audio_recorder(
                     pause_threshold=10.0,
                     text="",
                     recording_color="#F63366",
                     neutral_color="#000000",
                     icon_name="fa-solid fa-microphone",
-                    icon_size="2xl"))
+                    icon_size="2xl")
             submit_placeholder = st.empty()
             submit = submit_placeholder.button("Submit", type="primary")
 
@@ -252,12 +251,7 @@ def main():
                 st.experimental_rerun()
 
             if st.session_state.index == 5:
-                message_placeholder.empty()
-                audio_placeholder.empty()
-                button_placeholder.empty()
-
-
-
+                st.session_state.index = 0
 
 
 
