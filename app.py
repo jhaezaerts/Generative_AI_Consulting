@@ -245,18 +245,14 @@ def main():
                 r4.text_area(label=username, value=st.session_state.responses[3], key='r4.5')
                 q5.text_area(label="BART", value=questions[4], key='q5.5')
                 r5.text_area(label=username, value=st.session_state.responses[4], key='r5.5')
-
-
+                message_placeholder.empty()
+                button_placeholder.empty()
+                audio_container.empty()
 
             if submit:
                 st.write(st.session_state.index)
                 st.session_state.responses[st.session_state.index] = message
-                if st.session_state.index == 5:
-                    message_placeholder.empty()
-                    button_placeholder.empty()
-                    audio_container.empty()
-                else:
-                    st.session_state.index += 1
+                st.session_state.index += 1
                 st.session_state.input_message_key = str(random())
                 st.experimental_rerun()
 
