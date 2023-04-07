@@ -136,11 +136,15 @@ def main():
                      value="What line of work are you in?")
         textbox_placeholder = st.empty()
 
+        footer = st.footer("this is my footer")
+        with footer:
+            st.button("footerbutton")
+
+
         c1, c2 = st.columns([25, 2])
         with c1:
-            message = st.text_input(label="message",
+            message = st.text_input(label="Me",
                                     placeholder="Send a message...",
-                                    label_visibility="collapsed",
                                     key="text_input")
         with c2:
             test = audio_recorder(
@@ -154,6 +158,7 @@ def main():
 
         if submit and message:
             textbox_placeholder.text_area(label="response", value='Me -\t ' + message, label_visibility="collapsed")
+
 
 if __name__ == "__main__":
     main()
