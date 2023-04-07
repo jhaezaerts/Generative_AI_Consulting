@@ -164,15 +164,25 @@ def main():
             if "responses" not in st.session_state:
                 st.session_state.responses = [None] * 5
 
+            bart1 = st.empty()
             q1 = st.empty()
+            user1 = st.empty()
             r1 = st.empty()
+            bart2 = st.empty()
             q2 = st.empty()
+            user2 = st.empty()
             r2 = st.empty()
+            bart3 = st.empty()
             q3 = st.empty()
+            user3 = st.empty()
             r3 = st.empty()
+            bart4 = st.empty()
             q4 = st.empty()
+            user4 = st.empty()
             r4 = st.empty()
+            bart5 = st.empty()
             q5 = st.empty()
+            user5 = st.empty()
             r5 = st.empty()
 
             # Response area
@@ -184,9 +194,9 @@ def main():
             with c1:
                 message_placeholder = st.empty()
                 message = message_placeholder.text_input(label="Me",
-                                        label_visibility="collapsed",
-                                        placeholder="Send a message...",
-                                        key=st.session_state.input_message_key)
+                                                         label_visibility="collapsed",
+                                                         placeholder="Send a message...",
+                                                         key=st.session_state.input_message_key)
             with c2:
                 audio_placeholder = st.empty()
                 with audio_placeholder:
@@ -205,13 +215,15 @@ def main():
                 st.session_state.index = 0
 
             if st.session_state.index == 0:
-                q1.text_area(label="BART", value=questions[0], key='q1.0', disabled=True)
-                q1.write("**BART**")
+                bart1.write("**BART**")
                 q1.write(questions[0])
             if st.session_state.index == 1:
-                q1.text_area(label="BART", value=questions[0], key='q1.1')
-                r1.text_area(label=username, value=st.session_state.responses[0], key='r1.1')
-                q2.text_area(label="BART", value=questions[1], key='q2.1')
+                bart1.write("**BART**")
+                q1.write(questions[0])
+                user1.write("**" + username + "**")
+                r1.write(st.session_state.responses[0])
+                bart2.write("**BART**")
+                q2.write(questions[1])
             if st.session_state.index == 2:
                 q1.text_area(label="BART", value=questions[0], key='q1.2')
                 r1.text_area(label=username, value=st.session_state.responses[0], key='r1.2')
