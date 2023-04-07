@@ -152,10 +152,6 @@ def main():
             st.session_state["variables_setup"] = True
             st.session_state.input_message_key = str(random())
         st.markdown("""___""")
-        message = st.text_input(label="Me",
-                                label_visibility="collapsed",
-                                placeholder="Send a message...",
-                                key=st.session_state.input_message_key)
 
         c1, c2 = st.columns([25, 2])
         with c1:
