@@ -142,13 +142,13 @@ def main():
         start_button = st.empty()
         start_button.button("Get started", type="primary")
 
-        if username_input:
-            if "username" not in st.session_state:
-                st.session_state.username = username_input
-            username_header.empty()
-            username_input.empty()
-            start_button.empty()
-            st.write(f'hello {st.session_state.username}')
+        # if username_input:
+        #     if "username" not in st.session_state:
+        #         st.session_state.username = username_input
+        #     username_header.empty()
+        #     username_input.empty()
+        #     start_button.empty()
+        #     st.write(f'hello {st.session_state.username}')
 
 
 
