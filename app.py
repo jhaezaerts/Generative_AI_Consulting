@@ -215,13 +215,13 @@ def main():
             # Record button
             with c2:
                 audio_placeholder = st.empty()
-                # with audio_placeholder:
-                bytes = audio_recorder(pause_threshold=10.0,
-                                       text="",
-                                       recording_color="#F63366",
-                                       neutral_color="#000000",
-                                       icon_name="fa-solid fa-microphone",
-                                       icon_size="2xl")
+                with audio_placeholder:
+                    bytes = audio_recorder(pause_threshold=10.0,
+                                           text="",
+                                           recording_color="#F63366",
+                                           neutral_color="#000000",
+                                           icon_name="fa-solid fa-microphone",
+                                           icon_size="2xl")
             # Submit button
             submit_placeholder = st.empty()
             # submit = submit_placeholder.button("Submit", type="primary")
@@ -245,11 +245,12 @@ def main():
                     st.session_state.responses[st.session_state.index] = stt["text"]
                     st.session_state.index += 1
                     st.session_state.input_message_key = str(random())
-                    test = None
+
                     st.experimental_rerun()
             st.write(st.session_state.responses[st.session_state.index])
             st.write(st.session_state.index)
             st.write(st.session_state.responses)
+            st.write(bytes)
             # Question processing
             if st.session_state.index == 0:
                 c1, c2 = st.columns([2, 9])
