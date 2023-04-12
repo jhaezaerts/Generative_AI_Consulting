@@ -134,6 +134,7 @@ def main():
 
     if interaction == "Text & Speech - Chat":
         stt = None
+        submit = None
         message = None
 
         if "username" not in st.session_state:
