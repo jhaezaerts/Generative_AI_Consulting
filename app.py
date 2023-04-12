@@ -135,7 +135,6 @@ def main():
             advice_placeholder.empty()
 
     if interaction == "Text & Speech - Chat":
-        bytes = None
         stt = None
         message = None
         if "index" not in st.session_state:
@@ -223,6 +222,16 @@ def main():
                         neutral_color="#000000",
                         icon_name="fa-solid fa-microphone",
                         icon_size="2xl")
+                    if bytes:
+                        with open('response.wav', mode='bw') as audio_file:
+                            audio_file.write(bytes)
+                        recording = open("response.wav", "rb")
+                        stt = openai.Audio.transcribe("whisper-1", recording)
+                        st.session_state.responses[st.session_state.index] = stt["text"]
+                        message = message_placeholder.text_input(label="Me",
+                                                                 label_visibility="collapsed",
+                                                                 value=stt["text"],
+                                                                 key=st.session_state.input_message_key + '0')
             submit_placeholder = st.empty()
             submit = submit_placeholder.button("Submit", type="primary")
 
@@ -340,23 +349,11 @@ def main():
                 submit_placeholder.empty()
                 audio_placeholder.empty()
 
-            if bytes:
-                with open('response.wav', mode='bw') as audio_file:
-                    audio_file.write(bytes)
-                recording = open("response.wav", "rb")
-                stt = openai.Audio.transcribe("whisper-1", recording)
-                st.session_state.responses[st.session_state.index] = stt["text"]
-                message = message_placeholder.text_input(label="Me",
-                                                         label_visibility="collapsed",
-                                                         value=stt["text"],
-                                                         key=st.session_state.input_message_key + '0')
-
             if submit:
                 if message:
                     st.session_state.responses[st.session_state.index] = stt["text"]
                     st.session_state.index += 1
                     st.session_state.input_message_key = str(random())
-                    bytes = None
                     st.experimental_rerun()
 
 
