@@ -135,6 +135,10 @@ def main():
             advice_placeholder.empty()
 
     if interaction == "Text & Speech - Chat":
+        bytes = None
+        stt = None
+        if "index" not in st.session_state:
+            st.session_state.index = 0
         
         # Ask for a username
         if "username" not in st.session_state:
@@ -207,6 +211,13 @@ def main():
                                                          placeholder="Record your response...",
                                                          disabled=True,
                                                          key=st.session_state.input_message_key)
+                if bytes:
+                    with open('response.wav', mode='bw') as audio_file:
+                        audio_file.write(audio_bytes)
+                    response = open("response.wav", "rb")
+                    stt = openai.Audio.transcribe("whisper-1", response)
+                    st.session_state.responses[st.session_state.idx] = stt["text"]
+                    message.write(stt["text"])
             with c2:
                 audio_placeholder = st.empty()
                 with audio_placeholder:
@@ -219,11 +230,16 @@ def main():
                         icon_size="2xl")
             submit_placeholder = st.empty()
             submit = submit_placeholder.button("Submit", type="primary")
+            if submit:
+                if clicked:
+                    st.session_state.responses[st.session_state.index] = stt["text"]
+                    st.session_state.index += 1
+                    st.session_state.input_message_key = str(random())
+                    st.experimental_rerun()
+                    message.empty()
+                    submit_placeholder.empty()
 
             # Question processing
-            if "index" not in st.session_state:
-                st.session_state.index = 0
-
             if st.session_state.index == 0:
                 c1, c2 = st.columns([2, 9])
                 with c1:
