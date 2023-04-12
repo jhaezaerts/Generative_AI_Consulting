@@ -249,6 +249,7 @@ def main():
                     st.experimental_rerun()
             st.write(st.session_state.responses[st.session_state.index])
             st.write(st.session_state.index)
+            st.write(st.session_state.responses)
             # Question processing
             if st.session_state.index == 0:
                 c1, c2 = st.columns([2, 9])
