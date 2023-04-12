@@ -248,10 +248,6 @@ def main():
                     st.session_state.input_message_key = str(random())
                     st.experimental_rerun()
 
-            # st.write(st.session_state.index)
-            # st.write(st.session_state.responses)
-            # st.write(st.session_state.input_message_key)
-
             # Question processing
             if st.session_state.index == 0:
                 c1, c2 = st.columns([2, 9])
