@@ -482,8 +482,7 @@ def main():
             #         message_placeholder.empty()
             #         submit_placeholder.empty()
             #         audio_placeholder.empty()
-            process_questions()
-
+            process_questions(username, questions, bart1, q1, line1, user1, r1, line2, bart2, q2, line3, user2, r2, line4, bart3, q3, line5, user3, line6, r3, bart4, q4, line7, user4, r4, line8, bart5, q5, r5, line9, user5, message_placeholder, submit_placeholder, audio_placeholder)
 
 if __name__ == "__main__":
     main()
