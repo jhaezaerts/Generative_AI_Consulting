@@ -361,7 +361,7 @@ def main():
             f"""
                 <p>{st.session_state.index}</p>
                 <script>
-                    window.parent.document.querySelector('section.main').scrollDown();
+                    window.parent.document.querySelector('section.main').scrollto(0, document.body.scrollHeight);
                 </script>
             """,
             height=0
