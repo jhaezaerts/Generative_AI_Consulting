@@ -226,6 +226,7 @@ def main():
                                            key=st.session_state.input_message_key + '1')
             # Submit button
             submit_placeholder = st.empty()
+            st.title("")
 
             if bytes:
                 with open('response.wav', mode='bw') as audio_file:
