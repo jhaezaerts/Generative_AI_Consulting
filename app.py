@@ -345,7 +345,7 @@ def main():
 
             if bytes:
                 with open('response.wav', mode='bw') as audio_file:
-                    audio_file.write(audio_bytes)
+                    audio_file.write(bytes)
                 recording = open("response.wav", "rb")
                 stt = openai.Audio.transcribe("whisper-1", recording)
                 st.session_state.responses[st.session_state.index] = stt["text"]
