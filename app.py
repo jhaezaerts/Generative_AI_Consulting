@@ -223,8 +223,7 @@ def main():
                                        icon_size="2xl")
             # Submit button
             submit_placeholder = st.empty()
-            submit = submit_placeholder.button("Submit", type="primary")
-
+            # submit = submit_placeholder.button("Submit", type="primary")
 
             if bytes:
                 with open('response.wav', mode='bw') as audio_file:
@@ -237,6 +236,8 @@ def main():
                                                          value=stt["text"],
                                                          key=st.session_state.input_message_key + '0')
 
+            if message:
+                submit = submit_placeholder.button("Submit", type="primary")
 
             if submit:
                 if message:
