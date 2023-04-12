@@ -1,11 +1,9 @@
 # Imports
-import time
-import os
 from random import random
 from audio_recorder_streamlit import audio_recorder
 import openai
 import streamlit as st
-
+import streamlit.components.v1 as components
 
 # Page Config
 st.set_page_config(page_title="AI Consulting App")
@@ -359,8 +357,15 @@ def main():
                 submit_placeholder.empty()
                 audio_placeholder.empty()
 
-        st.title("")
-    st.title("")
+components.html(
+    f"""
+        <p>{st.session_state.index}</p>
+        <script>
+            window.parent.document.querySelector('section.main').scrollDown();
+        </script>
+    """,
+    height=0
+)
 
 
 if __name__ == "__main__":
