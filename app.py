@@ -356,11 +356,7 @@ def main():
                     st.session_state.responses[st.session_state.index] = stt["text"]
                     st.session_state.index += 1
                     st.session_state.input_message_key = str(random())
-                    message_placeholder.text_input(label="Me",
-                                                   label_visibility="collapsed",
-                                                   placeholder="Record your response...",
-                                                   disabled=True,
-                                                   key=st.session_state.input_message_key)
+                    message_placeholder.empty()
                     st.experimental_rerun()
 
 
