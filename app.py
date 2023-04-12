@@ -352,8 +352,7 @@ def main():
                 message_placeholder.text_input(label="Me",
                                                label_visibility="collapsed",
                                                value=stt["text"],
-                                               key=st.session_state.input_message_key)
-
+                                               key=st.session_state.input_message_key + '0')
 
             if submit:
                 if stt:
