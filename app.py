@@ -204,7 +204,7 @@ def main():
                 message_placeholder = st.empty()
                 message = message_placeholder.text_input(label="Me",
                                                          label_visibility="collapsed",
-                                                         placeholder="Send a message...",
+                                                         placeholder="Record your response...",
                                                          disabled=True,
                                                          key=st.session_state.input_message_key)
             with c2:
