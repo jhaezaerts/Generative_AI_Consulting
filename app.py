@@ -1,5 +1,6 @@
 # Imports
 import time
+import os
 from random import random
 from audio_recorder_streamlit import audio_recorder
 import openai
@@ -245,7 +246,7 @@ def main():
                     st.session_state.responses[st.session_state.index] = stt["text"]
                     st.session_state.index += 1
                     st.session_state.input_message_key = str(random())
-
+                    os.remove("response.wav")
                     st.experimental_rerun()
             st.write(st.session_state.responses[st.session_state.index])
             st.write(st.session_state.index)
