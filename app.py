@@ -203,6 +203,7 @@ def main():
             if "session" not in st.session_state:
                 st.session_state["session"] = True
                 st.session_state.input_message_key = str(random())
+
             c1, c2 = st.columns([25, 2])
             with c1:
                 message_placeholder = st.empty()
@@ -211,16 +212,6 @@ def main():
                                                          placeholder="Record your response...",
                                                          disabled=True,
                                                          key=st.session_state.input_message_key)
-                if bytes:
-                    with open('response.wav', mode='bw') as audio_file:
-                        audio_file.write(audio_bytes)
-                    recording = open("response.wav", "rb")
-                    stt = openai.Audio.transcribe("whisper-1", recording)
-                    st.session_state.responses[st.session_state.index] = stt["text"]
-                    message_placeholder.text_input(label="Me",
-                                                   label_visibility="collapsed",
-                                                   value=stt["text"],
-                                                   key=st.session_state.input_message_key)
             with c2:
                 audio_placeholder = st.empty()
                 with audio_placeholder:
@@ -233,14 +224,6 @@ def main():
                         icon_size="2xl")
             submit_placeholder = st.empty()
             submit = submit_placeholder.button("Submit", type="primary")
-            if submit:
-                if clicked:
-                    st.session_state.responses[st.session_state.index] = stt["text"]
-                    st.session_state.index += 1
-                    st.session_state.input_message_key = str(random())
-                    st.experimental_rerun()
-                    message.empty()
-                    submit_placeholder.empty()
 
             # Question processing
             if st.session_state.index == 0:
@@ -360,12 +343,25 @@ def main():
                 submit_placeholder.empty()
                 audio_placeholder.empty()
 
+            if bytes:
+                with open('response.wav', mode='bw') as audio_file:
+                    audio_file.write(audio_bytes)
+                recording = open("response.wav", "rb")
+                stt = openai.Audio.transcribe("whisper-1", recording)
+                st.session_state.responses[st.session_state.index] = stt["text"]
+                message_placeholder.text_input(label="Me",
+                                               label_visibility="collapsed",
+                                               value=stt["text"],
+                                               key=st.session_state.input_message_key)
+
+
             if submit:
-                st.write(st.session_state.index)
-                st.session_state.responses[st.session_state.index] = message
-                st.session_state.index += 1
-                st.session_state.input_message_key = str(random())
-                st.experimental_rerun()
+                if stt:
+                    st.session_state.responses[st.session_state.index] = stt["text"]
+                    st.session_state.index += 1
+                    st.session_state.input_message_key = str(random())
+                    st.experimental_rerun()
+                    submit_placeholder.empty()
 
 
 if __name__ == "__main__":
