@@ -223,7 +223,7 @@ def main():
                                            neutral_color="#000000",
                                            icon_name="fa-solid fa-microphone",
                                            icon_size="2xl",
-                                           key=st.session_state.input_message_key)
+                                           key=st.session_state.input_message_key + '1')
             # Submit button
             submit_placeholder = st.empty()
             # submit = submit_placeholder.button("Submit", type="primary")
