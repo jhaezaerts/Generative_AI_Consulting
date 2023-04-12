@@ -214,10 +214,13 @@ def main():
                 if bytes:
                     with open('response.wav', mode='bw') as audio_file:
                         audio_file.write(audio_bytes)
-                    response = open("response.wav", "rb")
-                    stt = openai.Audio.transcribe("whisper-1", response)
-                    st.session_state.responses[st.session_state.idx] = stt["text"]
-                    message.write(stt["text"])
+                    recording = open("response.wav", "rb")
+                    stt = openai.Audio.transcribe("whisper-1", recording)
+                    st.session_state.responses[st.session_state.index] = stt["text"]
+                    message_placeholder.text_input(label="Me",
+                                                   label_visibility="collapsed",
+                                                   value=stt["text"],
+                                                   key=st.session_state.input_message_key)
             with c2:
                 audio_placeholder = st.empty()
                 with audio_placeholder:
