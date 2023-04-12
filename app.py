@@ -359,8 +359,8 @@ def main():
                 submit_placeholder.empty()
                 audio_placeholder.empty()
 
-        st.header("")
-    st.header("")
+        st.title("")
+    st.title("")
 
 
 if __name__ == "__main__":
