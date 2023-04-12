@@ -243,7 +243,7 @@ def main():
                     st.session_state.responses[st.session_state.index] = stt["text"]
                     st.session_state.index += 1
                     st.session_state.input_message_key = str(random())
-                    stt = None
+                    stt["text"] = None
                     st.experimental_rerun()
 
             # Question processing
