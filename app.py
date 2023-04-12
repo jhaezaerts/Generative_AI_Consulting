@@ -232,6 +232,8 @@ def main():
                                                                  label_visibility="collapsed",
                                                                  value=stt["text"],
                                                                  key=st.session_state.input_message_key + '0')
+                        bytes = None
+
             submit_placeholder = st.empty()
             submit = submit_placeholder.button("Submit", type="primary")
 
