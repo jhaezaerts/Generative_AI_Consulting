@@ -357,15 +357,15 @@ def main():
                 submit_placeholder.empty()
                 audio_placeholder.empty()
 
-                components.html(
-                    f"""
-                        <p>{st.session_state.index}</p>
-                        <script>
-                            window.parent.document.querySelector('section.main').scrollDown();
-                        </script>
-                    """,
-                    height=0
-                )
+        components.html(
+            f"""
+                <p>{st.session_state.index}</p>
+                <script>
+                    window.parent.document.querySelector('section.main').scrollDown();
+                </script>
+            """,
+            height=0
+        )
 
 
 if __name__ == "__main__":
