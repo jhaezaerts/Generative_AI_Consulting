@@ -234,7 +234,7 @@ def main():
                 st.session_state.responses[st.session_state.index] = stt["text"]
                 message = message_placeholder.text_input(label="Me",
                                                          label_visibility="collapsed",
-                                                         value=stt["text"],
+                                                         value=st.session_state.responses[st.session_state.index],
                                                          key=st.session_state.input_message_key + '0')
 
             if message:
@@ -245,6 +245,7 @@ def main():
                     st.session_state.responses[st.session_state.index] = stt["text"]
                     st.session_state.index += 1
                     st.session_state.input_message_key = str(random())
+                    test = None
                     st.experimental_rerun()
 
             # Question processing
