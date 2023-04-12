@@ -137,6 +137,7 @@ def main():
     if interaction == "Text & Speech - Chat":
         bytes = None
         stt = None
+        message = None
         if "index" not in st.session_state:
             st.session_state.index = 0
         
@@ -207,11 +208,11 @@ def main():
             c1, c2 = st.columns([25, 2])
             with c1:
                 message_placeholder = st.empty()
-                message = message_placeholder.text_input(label="Me",
-                                                         label_visibility="collapsed",
-                                                         placeholder="Record your response...",
-                                                         disabled=True,
-                                                         key=st.session_state.input_message_key)
+                message_placeholder.text_input(label="Me",
+                                               label_visibility="collapsed",
+                                               placeholder="Record your response...",
+                                               disabled=True,
+                                               key=st.session_state.input_message_key)
             with c2:
                 audio_placeholder = st.empty()
                 with audio_placeholder:
@@ -238,7 +239,6 @@ def main():
                 line1.markdown("""---""")
                 user1.write("**" + username + "**")
                 r1.write(st.session_state.responses[0])
-                time.sleep(1.5)
                 line2.markdown("""---""")
                 bart2.write("**BART**")
                 q2.write(questions[1])
@@ -255,7 +255,6 @@ def main():
                 user2.write("**" + username + "**")
                 r2.write(st.session_state.responses[1])
                 line4.markdown("""---""")
-                time.sleep(1.5)
                 bart3.write("**BART**")
                 q3.write(questions[2])
             if st.session_state.index == 3:
@@ -277,7 +276,6 @@ def main():
                 user3.write("**" + username + "**")
                 r3.write(st.session_state.responses[2])
                 line6.markdown("""___""")
-                time.sleep(1.5)
                 bart4.write("**BART**")
                 q4.write(questions[3])
             if st.session_state.index == 4:
@@ -305,7 +303,6 @@ def main():
                 user4.write("**" + username + "**")
                 r4.write(st.session_state.responses[3])
                 line8.markdown("""___""")
-                time.sleep(1.5)
                 bart5.write("**BART**")
                 q5.write(questions[4])
             if st.session_state.index == 5:
@@ -349,18 +346,22 @@ def main():
                 recording = open("response.wav", "rb")
                 stt = openai.Audio.transcribe("whisper-1", recording)
                 st.session_state.responses[st.session_state.index] = stt["text"]
-                message_placeholder.text_input(label="Me",
-                                               label_visibility="collapsed",
-                                               value=stt["text"],
-                                               key=st.session_state.input_message_key + '0')
+                message = message_placeholder.text_input(label="Me",
+                                                         label_visibility="collapsed",
+                                                         value=stt["text"],
+                                                         key=st.session_state.input_message_key + '0')
 
             if submit:
-                if stt:
+                if message:
                     st.session_state.responses[st.session_state.index] = stt["text"]
                     st.session_state.index += 1
                     st.session_state.input_message_key = str(random())
+                    message_placeholder.text_input(label="Me",
+                                                   label_visibility="collapsed",
+                                                   placeholder="Record your response...",
+                                                   disabled=True,
+                                                   key=st.session_state.input_message_key)
                     st.experimental_rerun()
-                    submit_placeholder.empty()
 
 
 if __name__ == "__main__":
