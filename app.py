@@ -151,6 +151,8 @@ def main():
                                                      key=st.session_state.input_message_key + '0')
 
         if message:
+            if st.session_state.index == 4:
+                produce = submit_placeholder.button("Generate advice")
             submit = submit_placeholder.button("Submit", type="primary")
 
         if submit:
@@ -272,7 +274,7 @@ def main():
             audio_placeholder.empty()
 
         advice_placeholder = st.empty()
-        if None not in st.session_state.responses and submit:
+        if produce:
             with st.spinner('Processing your responses...'):
                 description = ', '.join(st.session_state.responses)
                 advice_placeholder.write(get_advice(description))
