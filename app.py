@@ -274,7 +274,7 @@ def main():
             message_placeholder.empty()
             audio_placeholder.empty()
             submit_placeholder.empty()
-            st.write(":male-technologist::male-technologist::male-technologist:")
+            st.title("BART")
             advice_placeholder = st.empty()
             with st.spinner('Processing your responses...'):
                 description = ', '.join(st.session_state.responses)
