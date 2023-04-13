@@ -224,6 +224,7 @@ def main():
                                            key=st.session_state.input_message_key + '1')
             # Submit button
             submit_placeholder = st.empty()
+            submit = submit_placeholder.button("Submit", type="primary")
 
             if bytes:
                 with open('response.wav', mode='bw') as audio_file:
@@ -236,8 +237,8 @@ def main():
                                                          value=st.session_state.responses[st.session_state.index],
                                                          key=st.session_state.input_message_key + '0')
 
-            if message:
-                submit = submit_placeholder.button("Submit", type="primary")
+            # if message:
+            #     submit = submit_placeholder.button("Submit", type="primary")
 
             if submit:
                 st.session_state.responses[st.session_state.index] = stt["text"]
