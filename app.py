@@ -277,13 +277,12 @@ def main():
 
         advice_placeholder = st.empty()
         if st.session_state.index == 5:
-            st.title("Thank you")
+            st.title("BART")
             with st.spinner('Processing your responses...'):
                 description = ', '.join(st.session_state.responses)
                 message_placeholder.empty()
                 audio_placeholder.empty()
                 submit_placeholder.empty()
-                st.title("Thank you")
                 advice_placeholder.write(get_advice(description))
         # else:
         #    advice_placeholder.empty()
