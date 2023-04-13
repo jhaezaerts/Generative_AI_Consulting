@@ -154,7 +154,8 @@ def main():
         if message:
             if st.session_state.index == 4:
                 produce = submit_placeholder.button("Generate advice", type="primary")
-            submit = submit_placeholder.button("Submit", type="primary")
+            else:
+                submit = submit_placeholder.button("Submit", type="primary")
 
         if submit:
             if stt:
