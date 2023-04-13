@@ -241,7 +241,8 @@ def main():
             #     submit = submit_placeholder.button("Submit", type="primary")
 
             if submit:
-                st.session_state.responses[st.session_state.index] = stt["text"]
+                if stt:
+                    st.session_state.responses[st.session_state.index] = stt["text"]
                 st.session_state.index += 1
                 st.session_state.input_message_key = str(random())
                 # st.experimental_rerun()
