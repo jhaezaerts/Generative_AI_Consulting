@@ -393,7 +393,7 @@ def main():
                     st.session_state.username = None
                     username_header.subheader("Enter a username")
                     username = username_input.text_input(label="username", label_visibility="collapsed", key=st.session_state.input_message_key + '2')
-                    start_button.button("Get started", type="primary")
+                    start_button.button("Get started", type="primary", key=st.session_state.input_message_key + '2')
 
 
 if __name__ == "__main__":
