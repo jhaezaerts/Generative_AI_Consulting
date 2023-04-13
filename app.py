@@ -157,7 +157,7 @@ def main():
             else:
                 submit = submit_placeholder.button("Submit", type="primary")
 
-        if submit:
+        if submit or produce:
             if stt:
                 st.session_state.responses[st.session_state.index] = stt["text"]
             st.session_state.index += 1
@@ -277,6 +277,7 @@ def main():
 
         advice_placeholder = st.empty()
         if produce:
+            st.title("Thank you")
             with st.spinner('Processing your responses...'):
                 description = ', '.join(st.session_state.responses)
                 message_placeholder.empty()
