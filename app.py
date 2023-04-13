@@ -46,8 +46,9 @@ def main():
     st.title("")
 
     stt = None
-    submit = None
     message = None
+    submit = None
+    produce = None
 
     if "username" not in st.session_state:
         st.session_state.username = ""
