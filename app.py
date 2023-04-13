@@ -272,20 +272,13 @@ def main():
             r5.write(st.session_state.responses[4])
 
             message_placeholder.empty()
-            submit_placeholder.empty()
             audio_placeholder.empty()
-
-        advice_placeholder = st.empty()
-        if st.session_state.index == 5:
-            st.title("BART")
+            submit_placeholder.empty()
+            st.write(":male-technologist:")
+            advice_placeholder = st.empty()
             with st.spinner('Processing your responses...'):
                 description = ', '.join(st.session_state.responses)
-                message_placeholder.empty()
-                audio_placeholder.empty()
-                submit_placeholder.empty()
                 advice_placeholder.write(get_advice(description))
-        # else:
-        #    advice_placeholder.empty()
 
         components.html(
             f"""
