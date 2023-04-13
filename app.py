@@ -14,15 +14,6 @@ hide_default_format = """
        </style>
        """
 st.markdown(hide_default_format, unsafe_allow_html=True)
-components.html(
-    f"""
-        <p>{st.session_state.index}</p>
-        <script>
-            window.parent.document.querySelector('section.main').scrollTo(0, 5000);
-        </script>
-    """,
-    height=0
-)
 
 
 # API Credentials
@@ -288,6 +279,17 @@ def main():
         # else:
         #    advice_placeholder.empty()
 
+        components.html(
+            f"""
+                <p>{st.session_state.index}</p>
+                <script>
+                    window.parent.document.querySelector('section.main').scrollTo(0, 5000);
+                </script>
+            """,
+            height=0
+        )
+
 
 if __name__ == "__main__":
     main()
+
