@@ -274,6 +274,8 @@ def main():
             submit_placeholder.empty()
             audio_placeholder.empty()
 
+        st.write(st.session_state.index)
+        st.write(st.session_state.responses)
         advice_placeholder = st.empty()
         if produce:
             with st.spinner('Processing your responses...'):
