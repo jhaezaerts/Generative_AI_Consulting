@@ -276,7 +276,7 @@ def main():
             audio_placeholder.empty()
 
         advice_placeholder = st.empty()
-        if produce:
+        if st.session_state.index == 5:
             st.title("Thank you")
             with st.spinner('Processing your responses...'):
                 description = ', '.join(st.session_state.responses)
