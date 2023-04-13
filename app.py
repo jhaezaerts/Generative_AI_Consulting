@@ -244,7 +244,7 @@ def main():
                     st.session_state.responses[st.session_state.index] = stt["text"]
                     st.session_state.index += 1
                     st.session_state.input_message_key = str(random())
-                    st.experimental_rerun()
+                    # st.experimental_rerun()
 
             # Question processing
             if st.session_state.index == 0:
@@ -356,44 +356,6 @@ def main():
                 message_placeholder.empty()
                 submit_placeholder.empty()
                 audio_placeholder.empty()
-
-                restart = st.button("restart", type="primary")
-                if restart:
-                    bart1.empty()
-                    q1.empty()
-                    line1.empty()
-                    user1.empty()
-                    r1 .empty()
-                    line2.empty()
-                    bart2.empty()
-                    q2.empty()
-                    line3.empty()
-                    user2.empty()
-                    r2.empty()
-                    line4.empty()
-                    bart3.empty()
-                    q3.empty()
-                    line5.empty()
-                    user3.empty()
-                    r3.empty()
-                    line6.empty()
-                    bart4.empty()
-                    q4.empty()
-                    line7.empty()
-                    user4.empty()
-                    r4.empty()
-                    line8.empty()
-                    bart5.empty()
-                    q5.empty()
-                    line9.empty()
-                    user5.empty()
-                    r5.empty()
-                    st.session_state.index = 0
-                    st.session_state.responses = [None] * 5
-                    st.session_state.username = None
-                    username_header.subheader("Enter a username")
-                    username = username_input.text_input(label="username", label_visibility="collapsed", key=st.session_state.input_message_key + '2')
-                    start_button.button("Get started", type="primary", key=st.session_state.input_message_key + '2')
 
 
 if __name__ == "__main__":
