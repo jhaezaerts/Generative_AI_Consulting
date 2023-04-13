@@ -41,7 +41,7 @@ def get_advice(description):
     return response['choices'][0]['message']['content']
 
 
-@st.cache_data
+@st.cache
 def main():
     st.title("Empower your business with AI.")
     st.title("")
