@@ -209,7 +209,7 @@ def main():
                 message_placeholder.text_input(label="Me",
                                                label_visibility="collapsed",
                                                placeholder="Record your response...",
-                                               disabled=True,
+                                               # disabled=True,
                                                key=st.session_state.input_message_key)
             # Record button
             with c2:
