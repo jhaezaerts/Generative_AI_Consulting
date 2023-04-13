@@ -14,6 +14,15 @@ hide_default_format = """
        </style>
        """
 st.markdown(hide_default_format, unsafe_allow_html=True)
+components.html(
+    f"""
+        <p>{st.session_state.index}</p>
+        <script>
+            window.parent.document.querySelector('section.main').scrollTo(0, 5000);
+        </script>
+    """,
+    height=0
+)
 
 
 # API Credentials
@@ -271,15 +280,13 @@ def main():
             submit_placeholder.empty()
             audio_placeholder.empty()
 
-    components.html(
-        f"""
-            <p>{st.session_state.index}</p>
-            <script>
-                window.parent.document.querySelector('section.main').scrollTo(0, 5000);
-            </script>
-        """,
-        height=0
-    )
+        advice_placeholder = st.empty()
+        if None not in st.session_state.responses and submit:
+            with st.spinner('Processing your responses...'):
+                description = ', '.join(st.session_state.responses)
+                advice_placeholder.write(get_advice(description))
+        # else:
+        #    advice_placeholder.empty()
 
 
 if __name__ == "__main__":
