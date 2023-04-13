@@ -358,7 +358,12 @@ def main():
                 audio_placeholder.empty()
 
         components.html(
-            "<script>window.parent.document.querySelector('section.main').scrollTo(0, 500);</script>",
+            f"""
+                <p>{st.session_state.index}</p>
+                <script>
+                    window.parent.document.querySelector('section.main').scrollTo(0, 500);
+                </script>
+            """,
             height=0
         )
 
