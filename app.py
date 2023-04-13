@@ -357,6 +357,12 @@ def main():
                 submit_placeholder.empty()
                 audio_placeholder.empty()
 
+        components.html(
+            "<script>window.parent.document.querySelector('section.main').scrollTo(0, 500);</script>",
+            # This will alternate between 0 and 1 with no visual changes, even with many pages
+            height=0,
+        )
+
 
 if __name__ == "__main__":
     main()
