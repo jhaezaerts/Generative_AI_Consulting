@@ -279,6 +279,10 @@ def main():
         if produce:
             with st.spinner('Processing your responses...'):
                 description = ', '.join(st.session_state.responses)
+                message_placeholder.empty()
+                audio_placeholder.empty()
+                submit_placeholder.empty()
+                st.title("Thank you")
                 advice_placeholder.write(get_advice(description))
         # else:
         #    advice_placeholder.empty()
