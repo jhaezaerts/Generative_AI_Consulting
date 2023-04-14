@@ -131,7 +131,7 @@ def main():
         # Record button
         with c2:
             user = st.empty()
-            user.title("")
+            user.header("")
             audio_placeholder = st.empty()
             with audio_placeholder:
                 bytes = audio_recorder(pause_threshold=10.0,
