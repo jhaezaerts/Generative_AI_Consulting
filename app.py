@@ -170,12 +170,7 @@ def main():
             bart1.write("**BART**")
         with c2:
             q1.write(questions[0])
-        if st.session_state.index == 0:
-            c1, c2 = st.columns([3, 10])
-            with c1:
-                bart1.write("**BART**")
-            with c2:
-                q1.write(questions[0])
+
         if st.session_state.index == 1:
             bart1.write("**BART**")
             q1.write(questions[0])
