@@ -130,6 +130,8 @@ def main():
                                           key=st.session_state.input_message_key)
         # Record button
         with c2:
+            user = st.empty()
+            user.write(f"**{username}**")
             audio_placeholder = st.empty()
             with audio_placeholder:
                 bytes = audio_recorder(pause_threshold=10.0,
