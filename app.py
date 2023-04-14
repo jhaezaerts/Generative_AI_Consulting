@@ -84,9 +84,11 @@ def main():
         ]
 
         # Set containers for Q&A
-        bart1 = st.empty()
-        q1 = st.empty()
-        line1 = st.empty()
+        c1, c2 = st.columns([3])
+        with c1:
+            bart1 = st.empty()
+        with c2:
+            q1 = st.empty()
         user1 = st.empty()
         r1 = st.empty()
         line2 = st.empty()
@@ -165,12 +167,10 @@ def main():
             st.experimental_rerun()
 
         # Question processing
-        c1, c2 = st.columns([3, 10])
-        with c1:
-            bart1.write("**BART**")
-        with c2:
-            q1.write(questions[0])
 
+        if st.session_state.index == 0:
+            bart1.write("**BART**")
+            q1.write(questions[0])
         if st.session_state.index == 1:
             bart1.write("**BART**")
             q1.write(questions[0])
