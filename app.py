@@ -121,10 +121,10 @@ def main():
         with c1:
             message_placeholder = st.empty()
             message_placeholder.text_area(label="Me",
-                                           label_visibility="collapsed",
-                                           placeholder="Record your response...",
-                                           disabled=True,
-                                           key=st.session_state.input_message_key)
+                                          label_visibility="collapsed",
+                                          placeholder="Record your response...",
+                                          disabled=True,
+                                          key=st.session_state.input_message_key)
         # Record button
         with c2:
             audio_placeholder = st.empty()
@@ -166,8 +166,11 @@ def main():
 
         # Question processing
         if st.session_state.index == 0:
-            bart1.write("**BART**")
-            q1.write(questions[0])
+            c1, c2 = st.columns([3, 10])
+            with c1:
+                bart1.write("**BART**")
+            with c2:
+                q1.write(questions[0])
         if st.session_state.index == 1:
             bart1.write("**BART**")
             q1.write(questions[0])
