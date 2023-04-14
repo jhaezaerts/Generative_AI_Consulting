@@ -170,10 +170,8 @@ def main():
             st.experimental_rerun()
 
         # Question processing
-
-        if st.session_state.index == 0:
-            bart1.write("**BART**")
-            q1.write(questions[0])
+        bart1.write("**BART**")
+        q1.write(questions[0])
         if st.session_state.index == 1:
             bart1.write("**BART**")
             q1.write(questions[0])
