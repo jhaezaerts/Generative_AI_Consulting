@@ -84,7 +84,7 @@ def main():
         ]
 
         # Set containers for Q&A
-        c1, c2 = st.columns([3,10])
+        c1, c2 = st.columns([1,11])
         with c1:
             bart1 = st.empty()
         with c2:
