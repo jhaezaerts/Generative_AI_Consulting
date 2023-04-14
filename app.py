@@ -123,7 +123,7 @@ def main():
         with c1:
             message_placeholder = st.empty()
             message_placeholder.text_area(label=f"{username}",
-                                          label_visibility="visible",
+                                          label_visibility="collapsed",
                                           placeholder="Record your response...",
                                           disabled=True,
                                           height=25,
@@ -131,7 +131,7 @@ def main():
         # Record button
         with c2:
             user = st.empty()
-            user.write(f"**{username}**")
+            user.write("")
             audio_placeholder = st.empty()
             with audio_placeholder:
                 bytes = audio_recorder(pause_threshold=10.0,
