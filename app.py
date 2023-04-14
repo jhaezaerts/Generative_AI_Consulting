@@ -84,7 +84,7 @@ def main():
         ]
 
         # Set containers for Q&A
-        c1, c2 = st.columns([1,11])
+        c1, c2 = st.columns([1, 11])
         with c1:
             bart1 = st.empty()
         with c2:
@@ -118,7 +118,7 @@ def main():
 
         # Response area
         # st.markdown("""___""")
-        c1, c2 = st.columns([25, 2])
+        c1, c2 = st.columns([11, 2])
         # Message display
         with c1:
             message_placeholder = st.empty()
