@@ -102,7 +102,7 @@ def main():
             bart1 = st.empty()
         with q1_col2:
             q1 = st.empty()
-        st.write("")
+        st.header("")
         # response area
         message_placeholder.text_area(label=f"{username}",
                                       label_visibility="collapsed",
@@ -125,7 +125,7 @@ def main():
             bart2 = st.empty()
         with q2_col2:
             q2 = st.empty()
-        st.write("")
+        st.header("")
         with q3_col1:
             bart3 = st.empty()
         with q3_col2:
