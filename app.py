@@ -115,7 +115,7 @@ def main():
         r5 = st.empty()
 
         # Response area
-        st.markdown("""___""")
+        # st.markdown("""___""")
         c1, c2 = st.columns([25, 2])
         # Message display
         with c1:
@@ -279,16 +279,6 @@ def main():
             with st.spinner('Processing your responses...'):
                 description = ', '.join(st.session_state.responses)
                 advice_placeholder.write(get_advice(description))
-
-        components.html(
-            f"""
-                <p>{st.session_state.index}</p>
-                <script>
-                    window.parent.document.querySelector('section.main').scrollTo(0, 5000);
-                </script>
-            """,
-            height=0
-        )
 
 
 if __name__ == "__main__":
