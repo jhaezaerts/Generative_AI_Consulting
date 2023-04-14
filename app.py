@@ -126,6 +126,7 @@ def main():
                                           label_visibility="collapsed",
                                           placeholder="Record your response...",
                                           disabled=True,
+                                          height=250,
                                           key=st.session_state.input_message_key)
         # Record button
         with c2:
@@ -174,7 +175,6 @@ def main():
         if st.session_state.index == 1:
             bart1.write("**BART**")
             q1.write(questions[0])
-            line1.markdown("""---""")
             user1.write("**" + username + "**")
             r1.write(st.session_state.responses[0])
             line2.markdown("""---""")
@@ -183,7 +183,6 @@ def main():
         if st.session_state.index == 2:
             bart1.write("**BART**")
             q1.write(questions[0])
-            line1.markdown("""---""")
             user1.write("**" + username + "**")
             r1.write(st.session_state.responses[0])
             line2.markdown("""---""")
@@ -198,7 +197,6 @@ def main():
         if st.session_state.index == 3:
             bart1.write("**BART**")
             q1.write(questions[0])
-            line1.markdown("""---""")
             user1.write("**" + username + "**")
             r1.write(st.session_state.responses[0])
             line2.markdown("""---""")
@@ -219,7 +217,6 @@ def main():
         if st.session_state.index == 4:
             bart1.write("**BART**")
             q1.write(questions[0])
-            line1.markdown("""---""")
             user1.write("**" + username + "**")
             r1.write(st.session_state.responses[0])
             line2.markdown("""---""")
@@ -246,7 +243,6 @@ def main():
         if st.session_state.index == 5:
             bart1.write("**BART**")
             q1.write(questions[0])
-            line1.markdown("""---""")
             user1.write("**" + username + "**")
             r1.write(st.session_state.responses[0])
             line2.markdown("""---""")
