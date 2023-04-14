@@ -84,10 +84,10 @@ def main():
         ]
 
         # Set containers for Q&A
-        c1, c2 = st.columns([1, 11])
-        with c1:
+        col1, col2 = st.columns([1, 11])
+        with col1:
             bart1 = st.empty()
-        with c2:
+        with col2:
             q1 = st.empty()
         user1 = st.empty()
         r1 = st.empty()
@@ -122,8 +122,8 @@ def main():
         # Message display
         with c1:
             message_placeholder = st.empty()
-            message_placeholder.text_area(label="Me",
-                                          label_visibility="collapsed",
+            message_placeholder.text_area(label=f"{username}",
+                                          label_visibility="visible",
                                           placeholder="Record your response...",
                                           disabled=True,
                                           height=25,
