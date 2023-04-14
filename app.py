@@ -168,8 +168,10 @@ def main():
         # Question processing
         bart1.write("**BART**")
         q1.write(questions[0])
+        st.write("a")
         bart2.write("**BART**")
         q2.write(questions[1])
+        st.write("b")
         bart3.write("**BART**")
         q3.write(questions[2])
         bart4.write("**BART**")
