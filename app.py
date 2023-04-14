@@ -94,28 +94,6 @@ def main():
             bart1 = st.empty()
         with q1_col2:
             q1 = st.empty()
-
-        with q2_col1:
-            bart2 = st.empty()
-        with q2_col2:
-            q2 = st.empty()
-
-        with q3_col1:
-            bart3 = st.empty()
-        with q3_col2:
-            q3 = st.empty()
-
-        with q4_col1:
-            bart4 = st.empty()
-        with q4_col2:
-            q4 = st.empty()
-
-        with q5_col1:
-            bart5 = st.empty()
-        with q5_col2:
-            q5 = st.empty()
-
-        # Response area
         c1, c2 = st.columns([11, 2])
         # Message display
         with c1:
@@ -142,6 +120,26 @@ def main():
         # Submit button
         submit_placeholder = st.empty()
         # submit = submit_placeholder.button("Submit", type="primary")
+        with q2_col1:
+            bart2 = st.empty()
+        with q2_col2:
+            q2 = st.empty()
+
+        with q3_col1:
+            bart3 = st.empty()
+        with q3_col2:
+            q3 = st.empty()
+
+        with q4_col1:
+            bart4 = st.empty()
+        with q4_col2:
+            q4 = st.empty()
+
+        with q5_col1:
+            bart5 = st.empty()
+        with q5_col2:
+            q5 = st.empty()
+
 
         if bytes:
             with open('response.wav', mode='bw') as audio_file:
