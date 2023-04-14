@@ -120,7 +120,7 @@ def main():
         # Message display
         with c1:
             message_placeholder = st.empty()
-            message_placeholder.text_input(label="Me",
+            message_placeholder.text_area(label="Me",
                                            label_visibility="collapsed",
                                            placeholder="Record your response...",
                                            disabled=True,
