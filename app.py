@@ -84,22 +84,38 @@ def main():
         ]
 
         # Set containers for Q&A
-        col1, col2 = st.columns([1, 11])
-        with col1:
+        q1_col1, q1_col2 = st.columns([1, 11])
+        q2_col1, q2_col2 = st.columns([1, 11])
+        q3_col1, q3_col2 = st.columns([1, 11])
+        q4_col1, q4_col2 = st.columns([1, 11])
+        q5_col1, q5_col2 = st.columns([1, 11])
+
+        with q1_col1:
             bart1 = st.empty()
-            bart2 = st.empty()
-            bart3 = st.empty()
-            bart4 = st.empty()
-            bart5 = st.empty()
-        with col2:
+        with q1_col2:
             q1 = st.empty()
+
+        with q2_col1:
+            bart2 = st.empty()
+        with q2_col2:
             q2 = st.empty()
+
+        with q3_col1:
+            bart3 = st.empty()
+        with q3_col2:
             q3 = st.empty()
+
+        with q4_col1:
+            bart4 = st.empty()
+        with q4_col2:
             q4 = st.empty()
+
+        with q5_col1:
+            bart5 = st.empty()
+        with q5_col2:
             q5 = st.empty()
 
         # Response area
-        # st.markdown("""___""")
         c1, c2 = st.columns([11, 2])
         # Message display
         with c1:
