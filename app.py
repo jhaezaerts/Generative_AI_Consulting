@@ -126,7 +126,7 @@ def main():
                                           label_visibility="collapsed",
                                           placeholder="Record your response...",
                                           disabled=True,
-                                          height=50,
+                                          height=30,
                                           key=st.session_state.input_message_key)
         # Record button
         with c2:
