@@ -85,6 +85,7 @@ def main():
 
         # Set containers for Q&A
         q1_col1, q1_col2 = st.columns([1, 11])
+        r1_col1, r1_col2 = st.columns([11, 2])
         q2_col1, q2_col2 = st.columns([1, 11])
         q3_col1, q3_col2 = st.columns([1, 11])
         q4_col1, q4_col2 = st.columns([1, 11])
@@ -94,9 +95,7 @@ def main():
             bart1 = st.empty()
         with q1_col2:
             q1 = st.empty()
-        c1, c2 = st.columns([11, 2])
-        # Message display
-        with c1:
+        with r1_col1:
             message_placeholder = st.empty()
             message_placeholder.text_area(label=f"{username}",
                                           label_visibility="collapsed",
@@ -105,7 +104,7 @@ def main():
                                           height=25,
                                           key=st.session_state.input_message_key)
         # Record button
-        with c2:
+        with r1_col2:
             user = st.empty()
             user.header("")
             audio_placeholder = st.empty()
