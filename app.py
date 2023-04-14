@@ -102,6 +102,7 @@ def main():
             bart1 = st.empty()
         with q1_col2:
             q1 = st.empty()
+        st.write("")
         # response area
         message_placeholder.text_area(label=f"{username}",
                                       label_visibility="collapsed",
@@ -124,7 +125,7 @@ def main():
             bart2 = st.empty()
         with q2_col2:
             q2 = st.empty()
-
+        st.write("")
         with q3_col1:
             bart3 = st.empty()
         with q3_col2:
@@ -168,10 +169,8 @@ def main():
         # Question processing
         bart1.write("**BART**")
         q1.write(questions[0])
-        st.write("a")
         bart2.write("**BART**")
         q2.write(questions[1])
-        st.write("b")
         bart3.write("**BART**")
         q3.write(questions[2])
         bart4.write("**BART**")
