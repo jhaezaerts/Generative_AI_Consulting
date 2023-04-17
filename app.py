@@ -158,11 +158,11 @@ def main():
 
         if st.session_state.index == 0:
             message1.text_area(label=f"{username}",
-                                          label_visibility="collapsed",
-                                          placeholder="Record your response...",
-                                          disabled=True,
-                                          height=25,
-                                          key=st.session_state.input_message_key)
+                               label_visibility="collapsed",
+                               placeholder="Record your response...",
+                               disabled=True,
+                               height=25,
+                               key=st.session_state.input_message_key)
             # Record button
             whitespace1.header("")
             with audio1:
@@ -172,7 +172,7 @@ def main():
                                        neutral_color="#000000",
                                        icon_name="fa-solid fa-microphone",
                                        icon_size="2xl",
-                                       key=st.session_state.input_message_key + '1')
+                                       key=st.session_state.input_message_key + '0')
 
             if bytes:
                 with open('response.wav', mode='bw') as audio_file:
@@ -183,7 +183,7 @@ def main():
                 message = message1.text_area(label="Me",
                                              label_visibility="collapsed",
                                              value=st.session_state.responses[st.session_state.index],
-                                             key=st.session_state.input_message_key + '0')
+                                             key=st.session_state.input_message_key + '1')
 
             if message:
                 submit = submit1.button("Send", type="primary")
@@ -197,6 +197,9 @@ def main():
                 whitespace1.empty()
                 audio1.empty()
                 st.experimental_rerun()
+
+
+
 
         #if st.session_state.index == 5:
          #   message_placeholder.empty()
