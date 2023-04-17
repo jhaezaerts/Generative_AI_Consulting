@@ -383,7 +383,6 @@ def main():
                 message3.write('*' + str(st.session_state.responses[2]) + '*')
                 message4.write('*' + str(st.session_state.responses[3]) + '*')
                 message5.write('*' + str(st.session_state.responses[4]) + '*')
-                st.title("BART")
                 advice_placeholder = st.empty()
                 with st.spinner('Processing your responses...'):
                     description = ', '.join(st.session_state.responses)
