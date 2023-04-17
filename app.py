@@ -201,7 +201,7 @@ def main():
 
 
         if st.session_state.index == 1:
-            message1.write(':red[' + '*' + str(st.session_state.responses[0]) + '*' + ']  \n')
+            message1.write(':red[' + '*' + str(st.session_state.responses[0]) + '*' + ']  \n ')
             message2.text_area(label=f"{username}",
                                label_visibility="collapsed",
                                placeholder="Record your response...",
