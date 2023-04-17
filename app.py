@@ -48,7 +48,6 @@ def main():
     stt = None
     message = None
     submit = None
-    produce = None
 
     if "username" not in st.session_state:
         st.session_state.username = ""
@@ -85,88 +84,67 @@ def main():
 
         # Set containers for Q&A
         q1_col1, q1_col2 = st.columns([1, 11])
-        r1_col1, r1_col2 = st.columns([11, 2])
-        with r1_col1:
-            message_placeholder = st.empty()
-        with r1_col2:
-            whitespace = st.empty()
-            audio_placeholder = st.empty()
-        submit_placeholder = st.empty()
-
-        q2_col1, q2_col2 = st.columns([1, 11])
-        q3_col1, q3_col2 = st.columns([1, 11])
-        q4_col1, q4_col2 = st.columns([1, 11])
-        q5_col1, q5_col2 = st.columns([1, 11])
-
         with q1_col1:
             bart1 = st.empty()
         with q1_col2:
             q1 = st.empty()
-        st.header("")
-        # response area
-        message_placeholder.text_area(label=f"{username}",
-                                      label_visibility="collapsed",
-                                      placeholder="Record your response...",
-                                      disabled=True,
-                                      height=25,
-                                      key=st.session_state.input_message_key)
-        # Record button
-        whitespace.header("")
-        with audio_placeholder:
-            bytes = audio_recorder(pause_threshold=10.0,
-                                   text="",
-                                   recording_color="#F63366",
-                                   neutral_color="#000000",
-                                   icon_name="fa-solid fa-microphone",
-                                   icon_size="2xl",
-                                   key=st.session_state.input_message_key + '1')
-
+        r1_col1, r1_col2 = st.columns([11, 2])
+        with r1_col1:
+            message1 = st.empty()
+        with r1_col2:
+            whitespace1 = st.empty()
+            audio1 = st.empty()
+        submit1 = st.empty()
+        q2_col1, q2_col2 = st.columns([1, 11])
         with q2_col1:
             bart2 = st.empty()
         with q2_col2:
             q2 = st.empty()
-        st.header("")
+        r2_col1, r2_col2 = st.columns([11, 2])
+        with r2_col1:
+            message2 = st.empty()
+        with r2_col2:
+            whitespace2 = st.empty()
+            audio2 = st.empty()
+        submit2 = st.empty()
+        q3_col1, q3_col2 = st.columns([1, 11])
         with q3_col1:
             bart3 = st.empty()
         with q3_col2:
             q3 = st.empty()
-
+        r3_col1, r3_col2 = st.columns([11, 2])
+        with r3_col1:
+            message3 = st.empty()
+        with r3_col2:
+            whitespace3 = st.empty()
+            audio3 = st.empty()
+        submit3 = st.empty()
+        q4_col1, q4_col2 = st.columns([1, 11])
         with q4_col1:
             bart4 = st.empty()
         with q4_col2:
             q4 = st.empty()
-
+        r4_col1, r4_col2 = st.columns([11, 2])
+        with r4_col1:
+            message4 = st.empty()
+        with r4_col2:
+            whitespace4 = st.empty()
+            audio4 = st.empty()
+        submit4 = st.empty()
+        q5_col1, q5_col2 = st.columns([1, 11])
         with q5_col1:
             bart5 = st.empty()
         with q5_col2:
             q5 = st.empty()
+        r5_col1, r5_col2 = st.columns([11, 2])
+        with r5_col1:
+            message5 = st.empty()
+        with r5_col2:
+            whitespace5 = st.empty()
+            audio5 = st.empty()
+        submit5 = st.empty()
 
-
-        if bytes:
-            with open('response.wav', mode='bw') as audio_file:
-                audio_file.write(bytes)
-            recording = open("response.wav", "rb")
-            stt = openai.Audio.transcribe("whisper-1", recording)
-            st.session_state.responses[st.session_state.index] = stt["text"]
-            message = message_placeholder.text_area(label="Me",
-                                                    label_visibility="collapsed",
-                                                    value=st.session_state.responses[st.session_state.index],
-                                                    key=st.session_state.input_message_key + '0')
-
-        if message:
-            if st.session_state.index == 4:
-                produce = submit_placeholder.button("Generate advice", type="primary")
-            else:
-                submit = submit_placeholder.button("Submit", type="primary")
-
-        if submit or produce:
-            if stt:
-                st.session_state.responses[st.session_state.index] = stt["text"]
-            st.session_state.index += 1
-            st.session_state.input_message_key = str(random())
-            st.experimental_rerun()
-
-        # Question processing
+        # Write down questions
         bart1.write("**BART**")
         q1.write(questions[0])
         bart2.write("**BART**")
@@ -178,15 +156,57 @@ def main():
         bart5.write("**BART**")
         q5.write(questions[4])
 
-        if st.session_state.index == 5:
-            message_placeholder.empty()
-            audio_placeholder.empty()
-            submit_placeholder.empty()
-            st.title("BART")
-            advice_placeholder = st.empty()
-            with st.spinner('Processing your responses...'):
-                description = ', '.join(st.session_state.responses)
-                advice_placeholder.write(get_advice(description))
+        if st.session_state.index == 0:
+            message1.text_area(label=f"{username}",
+                                          label_visibility="collapsed",
+                                          placeholder="Record your response...",
+                                          disabled=True,
+                                          height=25,
+                                          key=st.session_state.input_message_key)
+            # Record button
+            whitespace1.header("")
+            with audio1:
+                bytes = audio_recorder(pause_threshold=10.0,
+                                       text="",
+                                       recording_color="#F63366",
+                                       neutral_color="#000000",
+                                       icon_name="fa-solid fa-microphone",
+                                       icon_size="2xl",
+                                       key=st.session_state.input_message_key + '1')
+
+            if bytes:
+                with open('response.wav', mode='bw') as audio_file:
+                    audio_file.write(bytes)
+                recording = open("response.wav", "rb")
+                stt = openai.Audio.transcribe("whisper-1", recording)
+                st.session_state.responses[st.session_state.index] = stt["text"]
+                message = message1.text_area(label="Me",
+                                             label_visibility="collapsed",
+                                             value=st.session_state.responses[st.session_state.index],
+                                             key=st.session_state.input_message_key + '0')
+
+            if message:
+                submit = submit1.button("Send", type="primary")
+
+            if submit:
+                if stt:
+                    st.session_state.responses[st.session_state.index] = stt["text"]
+                st.session_state.index += 1
+                st.session_state.input_message_key = str(random())
+                message1.empty()
+                whitespace1.empty()
+                audio1.empty()
+                st.experimental_rerun()
+
+        #if st.session_state.index == 5:
+         #   message_placeholder.empty()
+         #   audio_placeholder.empty()
+         #   submit_placeholder.empty()
+         #   st.title("BART")
+         #   advice_placeholder = st.empty()
+         #   with st.spinner('Processing your responses...'):
+         #       description = ', '.join(st.session_state.responses)
+         #       advice_placeholder.write(get_advice(description))
 
 
 if __name__ == "__main__":
