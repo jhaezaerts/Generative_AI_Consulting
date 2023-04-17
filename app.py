@@ -193,7 +193,7 @@ def main():
                     st.session_state.responses[st.session_state.index] = stt["text"]
                 st.session_state.index += 1
                 st.session_state.input_message_key = str(random())
-                message1.empty()
+                message1.write(st.session_state.responses[0])
                 whitespace1.empty()
                 audio1.empty()
                 st.experimental_rerun()
