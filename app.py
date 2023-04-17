@@ -243,8 +243,8 @@ def main():
                 st.experimental_rerun()
 
         if st.session_state.index == 2:
-            message1.write('*' + str(st.session_state.responses[0]) + '*')
-            message2.write('*' + str(st.session_state.responses[1]) + '*')
+            message1.write(':red[' + '*' + str(st.session_state.responses[0]) + '*' + ']')
+            message2.write(':red[' + '*' + str(st.session_state.responses[1]) + '*' + ']')
             message3.text_area(label=f"{username}",
                                label_visibility="collapsed",
                                placeholder="Record your response...",
@@ -286,9 +286,9 @@ def main():
                 st.experimental_rerun()
 
         if st.session_state.index == 3:
-            message1.write('*' + str(st.session_state.responses[0]) + '*')
-            message2.write('*' + str(st.session_state.responses[1]) + '*')
-            message3.write('*' + str(st.session_state.responses[2]) + '*')
+            message1.write(':red[' + '*' + str(st.session_state.responses[0]) + '*' + ']')
+            message2.write(':red[' + '*' + str(st.session_state.responses[1]) + '*' + ']')
+            message3.write(':red[' + '*' + str(st.session_state.responses[2]) + '*' + ']')
             message4.text_area(label=f"{username}",
                                label_visibility="collapsed",
                                placeholder="Record your response...",
@@ -330,10 +330,10 @@ def main():
                 st.experimental_rerun()
 
         if st.session_state.index == 4:
-            message1.write('*' + str(st.session_state.responses[0]) + '*')
-            message2.write('*' + str(st.session_state.responses[1]) + '*')
-            message3.write('*' + str(st.session_state.responses[2]) + '*')
-            message4.write('*' + str(st.session_state.responses[3]) + '*')
+            message1.write(':red[' + '*' + str(st.session_state.responses[0]) + '*' + ']')
+            message2.write(':red[' + '*' + str(st.session_state.responses[1]) + '*' + ']')
+            message3.write(':red[' + '*' + str(st.session_state.responses[2]) + '*' + ']')
+            message4.write(':red[' + '*' + str(st.session_state.responses[3]) + '*' + ']')
             message5.text_area(label=f"{username}",
                                label_visibility="collapsed",
                                placeholder="Record your response...",
@@ -375,11 +375,11 @@ def main():
                 st.experimental_rerun()
 
         if st.session_state.index == 5:
-            message1.write('*' + str(st.session_state.responses[0]) + '*')
-            message2.write('*' + str(st.session_state.responses[1]) + '*')
-            message3.write('*' + str(st.session_state.responses[2]) + '*')
-            message4.write('*' + str(st.session_state.responses[3]) + '*')
-            message5.write('*' + str(st.session_state.responses[4]) + '*')
+            message1.write(':red[' + '*' + str(st.session_state.responses[0]) + '*' + ']')
+            message2.write(':red[' + '*' + str(st.session_state.responses[1]) + '*' + ']')
+            message3.write(':red[' + '*' + str(st.session_state.responses[2]) + '*' + ']')
+            message4.write(':red[' + '*' + str(st.session_state.responses[3]) + '*' + ']')
+            message5.write(':red[' + '*' + str(st.session_state.responses[4]) + '*' + ']')
             with st.spinner('Processing your responses...'):
                 description = ', '.join(st.session_state.responses)
                 advice_placeholder.write(get_advice(description))
