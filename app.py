@@ -42,7 +42,7 @@ def get_advice(description):
 
 
 def main():
-    st.title("Empower your business with AI.")
+    st.title("Empower your business with AI:red[.]")
     st.title("")
 
     stt = None
