@@ -287,106 +287,107 @@ def main():
                 st.experimental_rerun()
 
 
-            if st.session_state.index == 3:
-                message1.write('*' + str(st.session_state.responses[0]) + '*')
-                message2.write('*' + str(st.session_state.responses[1]) + '*')
-                message3.write('*' + str(st.session_state.responses[2]) + '*')
-                message4.text_area(label=f"{username}",
-                                   label_visibility="collapsed",
-                                   placeholder="Record your response...",
-                                   disabled=True,
-                                   height=25,
-                                   key=st.session_state.input_message_key)
-                # Record button
-                whitespace4.header("")
-                with audio4:
-                    bytes = audio_recorder(pause_threshold=10.0,
-                                           text="",
-                                           recording_color="#F63366",
-                                           neutral_color="#000000",
-                                           icon_name="fa-solid fa-microphone",
-                                           icon_size="2xl",
-                                           key=st.session_state.input_message_key + '5')
+        if st.session_state.index == 3:
+            message1.write('*' + str(st.session_state.responses[0]) + '*')
+            message2.write('*' + str(st.session_state.responses[1]) + '*')
+            message3.write('*' + str(st.session_state.responses[2]) + '*')
+            message4.text_area(label=f"{username}",
+                               label_visibility="collapsed",
+                               placeholder="Record your response...",
+                               disabled=True,
+                               height=25,
+                               key=st.session_state.input_message_key)
+            # Record button
+            whitespace4.header("")
+            with audio4:
+                bytes = audio_recorder(pause_threshold=10.0,
+                                       text="",
+                                       recording_color="#F63366",
+                                       neutral_color="#000000",
+                                       icon_name="fa-solid fa-microphone",
+                                       icon_size="2xl",
+                                       key=st.session_state.input_message_key + '5')
 
-                if bytes:
-                    with open('response.wav', mode='bw') as audio_file:
-                        audio_file.write(bytes)
-                    recording = open("response.wav", "rb")
-                    stt = openai.Audio.transcribe("whisper-1", recording)
+            if bytes:
+                with open('response.wav', mode='bw') as audio_file:
+                    audio_file.write(bytes)
+                recording = open("response.wav", "rb")
+                stt = openai.Audio.transcribe("whisper-1", recording)
+                st.session_state.responses[st.session_state.index] = stt["text"]
+                message = message4.text_area(label="Me",
+                                             label_visibility="collapsed",
+                                             value=st.session_state.responses[st.session_state.index],
+                                             key=st.session_state.input_message_key + '6')
+
+            if message:
+                submit = submit4.button("Send", type="primary")
+
+            if submit:
+                if stt:
                     st.session_state.responses[st.session_state.index] = stt["text"]
-                    message = message4.text_area(label="Me",
-                                                 label_visibility="collapsed",
-                                                 value=st.session_state.responses[st.session_state.index],
-                                                 key=st.session_state.input_message_key + '6')
-
-                if message:
-                    submit = submit4.button("Send", type="primary")
-
-                if submit:
-                    if stt:
-                        st.session_state.responses[st.session_state.index] = stt["text"]
-                    st.session_state.index += 1
-                    st.session_state.input_message_key = str(random())
-                    whitespace4.empty()
-                    audio4.empty()
-                    st.experimental_rerun()
+                st.session_state.index += 1
+                st.session_state.input_message_key = str(random())
+                whitespace4.empty()
+                audio4.empty()
+                st.experimental_rerun()
 
 
-            if st.session_state.index == 4:
-                message1.write('*' + str(st.session_state.responses[0]) + '*')
-                message2.write('*' + str(st.session_state.responses[1]) + '*')
-                message3.write('*' + str(st.session_state.responses[2]) + '*')
-                message4.write('*' + str(st.session_state.responses[3]) + '*')
-                message5.text_area(label=f"{username}",
-                                   label_visibility="collapsed",
-                                   placeholder="Record your response...",
-                                   disabled=True,
-                                   height=25,
-                                   key=st.session_state.input_message_key)
-                # Record button
-                whitespace5.header("")
-                with audio5:
-                    bytes = audio_recorder(pause_threshold=10.0,
-                                           text="",
-                                           recording_color="#F63366",
-                                           neutral_color="#000000",
-                                           icon_name="fa-solid fa-microphone",
-                                           icon_size="2xl",
-                                           key=st.session_state.input_message_key + '7')
+        if st.session_state.index == 4:
+            message1.write('*' + str(st.session_state.responses[0]) + '*')
+            message2.write('*' + str(st.session_state.responses[1]) + '*')
+            message3.write('*' + str(st.session_state.responses[2]) + '*')
+            message4.write('*' + str(st.session_state.responses[3]) + '*')
+            message5.text_area(label=f"{username}",
+                               label_visibility="collapsed",
+                               placeholder="Record your response...",
+                               disabled=True,
+                               height=25,
+                               key=st.session_state.input_message_key)
+            # Record button
+            whitespace5.header("")
+            with audio5:
+                bytes = audio_recorder(pause_threshold=10.0,
+                                       text="",
+                                       recording_color="#F63366",
+                                       neutral_color="#000000",
+                                       icon_name="fa-solid fa-microphone",
+                                       icon_size="2xl",
+                                       key=st.session_state.input_message_key + '7')
 
-                if bytes:
-                    with open('response.wav', mode='bw') as audio_file:
-                        audio_file.write(bytes)
-                    recording = open("response.wav", "rb")
-                    stt = openai.Audio.transcribe("whisper-1", recording)
+            if bytes:
+                with open('response.wav', mode='bw') as audio_file:
+                    audio_file.write(bytes)
+                recording = open("response.wav", "rb")
+                stt = openai.Audio.transcribe("whisper-1", recording)
+                st.session_state.responses[st.session_state.index] = stt["text"]
+                message = message5.text_area(label="Me",
+                                             label_visibility="collapsed",
+                                             value=st.session_state.responses[st.session_state.index],
+                                             key=st.session_state.input_message_key + '8')
+
+            if message:
+                submit = submit5.button("Send", type="primary")
+
+            if submit:
+                if stt:
                     st.session_state.responses[st.session_state.index] = stt["text"]
-                    message = message5.text_area(label="Me",
-                                                 label_visibility="collapsed",
-                                                 value=st.session_state.responses[st.session_state.index],
-                                                 key=st.session_state.input_message_key + '8')
+                st.session_state.index += 1
+                st.session_state.input_message_key = str(random())
+                whitespace5.empty()
+                audio5.empty()
+                st.experimental_rerun()
 
-                if message:
-                    submit = submit5.button("Send", type="primary")
+        if st.session_state.index == 5:
+            message1.write('*' + str(st.session_state.responses[0]) + '*')
+            message2.write('*' + str(st.session_state.responses[1]) + '*')
+            message3.write('*' + str(st.session_state.responses[2]) + '*')
+            message4.write('*' + str(st.session_state.responses[3]) + '*')
+            message5.write('*' + str(st.session_state.responses[4]) + '*')
+            advice_placeholder = st.empty()
+            with st.spinner('Processing your responses...'):
+                description = ', '.join(st.session_state.responses)
+                advice_placeholder.write(get_advice(description))
 
-                if submit:
-                    if stt:
-                        st.session_state.responses[st.session_state.index] = stt["text"]
-                    st.session_state.index += 1
-                    st.session_state.input_message_key = str(random())
-                    whitespace5.empty()
-                    audio5.empty()
-                    st.experimental_rerun()
-
-            if st.session_state.index == 5:
-                message1.write('*' + str(st.session_state.responses[0]) + '*')
-                message2.write('*' + str(st.session_state.responses[1]) + '*')
-                message3.write('*' + str(st.session_state.responses[2]) + '*')
-                message4.write('*' + str(st.session_state.responses[3]) + '*')
-                message5.write('*' + str(st.session_state.responses[4]) + '*')
-                advice_placeholder = st.empty()
-                with st.spinner('Processing your responses...'):
-                    description = ', '.join(st.session_state.responses)
-                    advice_placeholder.write(get_advice(description))
 
 
 if __name__ == "__main__":
