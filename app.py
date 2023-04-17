@@ -3,7 +3,7 @@ from random import random
 from audio_recorder_streamlit import audio_recorder
 import openai
 import streamlit as st
-import streamlit.components.v1 as components
+
 
 # Page Config
 st.set_page_config(page_title="AI Consulting App")
@@ -144,6 +144,7 @@ def main():
             audio5 = st.empty()
         submit5 = st.empty()
         st.markdown("""---""")
+        advice_placeholder = st.empty()
 
         # Write down questions
         bart1.write("**BART**")
@@ -200,7 +201,7 @@ def main():
 
 
         if st.session_state.index == 1:
-            message1.write('*' + st.session_state.responses[0] + '*')
+            message1.write('*' + str(st.session_state.responses[0]) + '*')
             message2.text_area(label=f"{username}",
                                label_visibility="collapsed",
                                placeholder="Record your response...",
@@ -243,8 +244,8 @@ def main():
 
 
         if st.session_state.index == 2:
-            message1.write('*' + st.session_state.responses[0] + '*')
-            message2.write('*' + st.session_state.responses[1] + '*')
+            message1.write('*' + str(st.session_state.responses[0]) + '*')
+            message2.write('*' + str(st.session_state.responses[1]) + '*')
             message3.text_area(label=f"{username}",
                                label_visibility="collapsed",
                                placeholder="Record your response...",
@@ -287,9 +288,9 @@ def main():
 
 
             if st.session_state.index == 3:
-                message1.write('*' + st.session_state.responses[0] + '*')
-                message2.write('*' + st.session_state.responses[1] + '*')
-                message3.write('*' + st.session_state.responses[2] + '*')
+                message1.write('*' + str(st.session_state.responses[0]) + '*')
+                message2.write('*' + str(st.session_state.responses[1]) + '*')
+                message3.write('*' + str(st.session_state.responses[2]) + '*')
                 message4.text_area(label=f"{username}",
                                    label_visibility="collapsed",
                                    placeholder="Record your response...",
@@ -332,10 +333,10 @@ def main():
 
 
             if st.session_state.index == 4:
-                message1.write('*' + st.session_state.responses[0] + '*')
-                message2.write('*' + st.session_state.responses[1] + '*')
-                message3.write('*' + st.session_state.responses[2] + '*')
-                message4.write('*' + st.session_state.responses[3] + '*')
+                message1.write('*' + str(st.session_state.responses[0]) + '*')
+                message2.write('*' + str(st.session_state.responses[1]) + '*')
+                message3.write('*' + str(st.session_state.responses[2]) + '*')
+                message4.write('*' + str(st.session_state.responses[3]) + '*')
                 message5.text_area(label=f"{username}",
                                    label_visibility="collapsed",
                                    placeholder="Record your response...",
@@ -377,11 +378,11 @@ def main():
                     st.experimental_rerun()
 
             if st.session_state.index == 5:
-                message1.write('*' + st.session_state.responses[0] + '*')
-                message2.write('*' + st.session_state.responses[1] + '*')
-                message3.write('*' + st.session_state.responses[2] + '*')
-                message4.write('*' + st.session_state.responses[3] + '*')
-                message5.write('*' + st.session_state.responses[4] + '*')
+                message1.write('*' + str(st.session_state.responses[0]) + '*')
+                message2.write('*' + str(st.session_state.responses[1]) + '*')
+                message3.write('*' + str(st.session_state.responses[2]) + '*')
+                message4.write('*' + str(st.session_state.responses[3]) + '*')
+                message5.write('*' + str(st.session_state.responses[4]) + '*')
                 st.title("BART")
                 advice_placeholder = st.empty()
                 with st.spinner('Processing your responses...'):
