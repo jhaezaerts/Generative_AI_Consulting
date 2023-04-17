@@ -199,7 +199,7 @@ def main():
 
 
         if st.session_state.index == 1:
-            message1.write(st.session_state.responses[0])
+            message1.write('*' + st.session_state.responses[0] + '*')
             message2.text_area(label=f"{username}",
                                label_visibility="collapsed",
                                placeholder="Record your response...",
@@ -223,13 +223,13 @@ def main():
                 recording = open("response.wav", "rb")
                 stt = openai.Audio.transcribe("whisper-1", recording)
                 st.session_state.responses[st.session_state.index] = stt["text"]
-                message = message1.text_area(label="Me",
+                message = message2.text_area(label="Me",
                                              label_visibility="collapsed",
                                              value=st.session_state.responses[st.session_state.index],
                                              key=st.session_state.input_message_key + '4')
 
             if message:
-                submit = submit1.button("Send", type="primary")
+                submit = submit2.button("Send", type="primary")
 
             if submit:
                 if stt:
@@ -242,8 +242,8 @@ def main():
 
 
         if st.session_state.index == 2:
-            message1.write(st.session_state.responses[0])
-            message2.write(st.session_state.responses[1])
+            message1.write('*' + st.session_state.responses[0] + '*')
+            message2.write('*' + st.session_state.responses[1] + '*')
             message3.text_area(label=f"{username}",
                                label_visibility="collapsed",
                                placeholder="Record your response...",
