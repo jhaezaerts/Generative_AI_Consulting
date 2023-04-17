@@ -143,6 +143,7 @@ def main():
             whitespace5 = st.empty()
             audio5 = st.empty()
         submit5 = st.empty()
+        st.markdown("""---""")
 
         # Write down questions
         bart1.write("**BART**")
