@@ -286,9 +286,9 @@ def main():
 
 
             if st.session_state.index == 3:
-                message1.write(st.session_state.responses[0])
-                message2.write(st.session_state.responses[1])
-                message3.write(st.session_state.responses[2])
+                message1.write('*' + st.session_state.responses[0] + '*')
+                message2.write('*' + st.session_state.responses[1] + '*')
+                message3.write('*' + st.session_state.responses[2] + '*')
                 message4.text_area(label=f"{username}",
                                    label_visibility="collapsed",
                                    placeholder="Record your response...",
@@ -331,10 +331,10 @@ def main():
 
 
             if st.session_state.index == 4:
-                message1.write(st.session_state.responses[0])
-                message2.write(st.session_state.responses[1])
-                message3.write(st.session_state.responses[2])
-                message4.write(st.session_state.responses[3])
+                message1.write('*' + st.session_state.responses[0] + '*')
+                message2.write('*' + st.session_state.responses[1] + '*')
+                message3.write('*' + st.session_state.responses[2] + '*')
+                message4.write('*' + st.session_state.responses[3] + '*')
                 message5.text_area(label=f"{username}",
                                    label_visibility="collapsed",
                                    placeholder="Record your response...",
@@ -376,11 +376,11 @@ def main():
                     st.experimental_rerun()
 
             if st.session_state.index == 5:
-                message1.write(st.session_state.responses[0])
-                message2.write(st.session_state.responses[1])
-                message3.write(st.session_state.responses[2])
-                message4.write(st.session_state.responses[3])
-                message5.write(st.session_state.responses[4])
+                message1.write('*' + st.session_state.responses[0] + '*')
+                message2.write('*' + st.session_state.responses[1] + '*')
+                message3.write('*' + st.session_state.responses[2] + '*')
+                message4.write('*' + st.session_state.responses[3] + '*')
+                message5.write('*' + st.session_state.responses[4] + '*')
                 st.title("BART")
                 advice_placeholder = st.empty()
                 with st.spinner('Processing your responses...'):
