@@ -306,7 +306,7 @@ def main():
                                            neutral_color="#000000",
                                            icon_name="fa-solid fa-microphone",
                                            icon_size="2xl",
-                                           key=st.session_state.input_message_key + '3')
+                                           key=st.session_state.input_message_key + '5')
 
                 if bytes:
                     with open('response.wav', mode='bw') as audio_file:
@@ -317,7 +317,7 @@ def main():
                     message = message4.text_area(label="Me",
                                                  label_visibility="collapsed",
                                                  value=st.session_state.responses[st.session_state.index],
-                                                 key=st.session_state.input_message_key + '4')
+                                                 key=st.session_state.input_message_key + '6')
 
                 if message:
                     submit = submit4.button("Send", type="primary")
@@ -352,7 +352,7 @@ def main():
                                            neutral_color="#000000",
                                            icon_name="fa-solid fa-microphone",
                                            icon_size="2xl",
-                                           key=st.session_state.input_message_key + '3')
+                                           key=st.session_state.input_message_key + '7')
 
                 if bytes:
                     with open('response.wav', mode='bw') as audio_file:
@@ -363,7 +363,7 @@ def main():
                     message = message5.text_area(label="Me",
                                                  label_visibility="collapsed",
                                                  value=st.session_state.responses[st.session_state.index],
-                                                 key=st.session_state.input_message_key + '4')
+                                                 key=st.session_state.input_message_key + '8')
 
                 if message:
                     submit = submit5.button("Send", type="primary")
