@@ -54,7 +54,7 @@ def main():
     if "index" not in st.session_state:
         st.session_state.index = 0
     if "responses" not in st.session_state:
-        st.session_state.responses = [None] * 5
+        st.session_state.responses = []
     if "session" not in st.session_state:
         st.session_state["session"] = True
         st.session_state.input_message_key = str(random())
@@ -83,32 +83,38 @@ def main():
         start_button.empty()
 
         # Question processing
-        if st.session_state.index == 0:
-            chat(f"Hello {username}, " + questions[0], avatar_style="bottts", seed="Buster")
-            test = st.placeholder()
-            c1, c2 = st.columns([9, 1])
-            with c1:
-                input = st.text_area(label=f"{username}",
-                                     label_visibility="collapsed",
-                                     placeholder="record your message...",
-                                     disabled=True)
-            with c2:
-                st.header("")
-                audio_bytes = audio_recorder(pause_threshold=10.0,
-                                             text="",
-                                             recording_color="#F63366",
-                                             neutral_color="#000000",
-                                             icon_name="fa-solid fa-microphone",
-                                             icon_size="2xl",
-                                             key=st.session_state.input_message_key + '1')
+        chat(f"Hello {username}, " + questions[0], avatar_style="bottts", seed="Buster")
+        test = st.empty()
+        c1, c2 = st.columns([9, 1])
+        with c1:
+            input = st.text_area(label=f"{username}",
+                                 label_visibility="collapsed",
+                                 placeholder="record your message...",
+                                 disabled=True)
+        with c2:
+            st.header("")
+            audio_bytes = audio_recorder(pause_threshold=10.0,
+                                         text="",
+                                         recording_color="#F63366",
+                                         neutral_color="#000000",
+                                         icon_name="fa-solid fa-microphone",
+                                         icon_size="2xl",
+                                         key=st.session_state.input_message_key + '1')
 
-            if audio_bytes:
-                with open('response.wav', mode='bw') as audio_file:
-                    audio_file.write(audio_bytes)
-                recording = open("response.wav", "rb")
-                stt = openai.Audio.transcribe("whisper-1", recording)
+        if audio_bytes:
+            with open('response.wav', mode='bw') as audio_file:
+                audio_file.write(audio_bytes)
+            recording = open("response.wav", "rb")
+            stt = openai.Audio.transcribe("whisper-1", recording)
+            st.session_state.responses[st.session_state.index] = stt["text"]
+            submit = st.button("Send", type="primary")
+
+        if submit:
+            if stt:
                 st.session_state.responses[st.session_state.index] = stt["text"]
-                test = chat(st.session_state.responses[0], is_user=True, avatar_style="initials", seed=username)
+            st.session_state.index += 1
+            st.session_state.input_message_key = str(random())
+            st.experimental_rerun()
 
 
 if __name__ == "__main__":
