@@ -85,18 +85,21 @@ def main():
         # Question processing
         if st.session_state.index == 0:
             chat(f"Hello {username}, " + questions[0], avatar_style="bottts", seed="Buster")
-            input = st.text_area(label=f"{username}",
-                                 label_visibility="collapsed",
-                                 placeholder="record your message...",
-                                 disabled=True)
-            st.header("")
-            audio_bytes = audio_recorder(pause_threshold=10.0,
-                                         text="",
-                                         recording_color="#F63366",
-                                         neutral_color="#000000",
-                                         icon_name="fa-solid fa-microphone",
-                                         icon_size="2xl",
-                                         key=st.session_state.input_message_key + '1')
+            c1, c2 = st.columns([9, 1])
+            with c1:
+                input = st.text_area(label=f"{username}",
+                                     label_visibility="collapsed",
+                                     placeholder="record your message...",
+                                     disabled=True)
+            with c2:
+                st.header("")
+                audio_bytes = audio_recorder(pause_threshold=10.0,
+                                             text="",
+                                             recording_color="#F63366",
+                                             neutral_color="#000000",
+                                             icon_name="fa-solid fa-microphone",
+                                             icon_size="2xl",
+                                             key=st.session_state.input_message_key + '1')
 
 
 if __name__ == "__main__":
