@@ -88,7 +88,7 @@ def main():
                                      "business.", avatar_style="bottts", seed="Buster")
         for i in range(len(st.session_state.responses)+1):
             chat(questions[i], avatar_style="bottts", seed="Buster")
-            if len(st.session_state.responses) <= i:
+            if len(st.session_state.responses) != i:
                 chat(st.session_state.responses[i], is_user=True, avatar_style="initials", seed=username)
 
         c1, c2 = st.columns([9, 1])
