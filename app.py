@@ -69,7 +69,7 @@ def main():
 
     # Initialize Q&A
     if username:
-        chat("test", avatar_style="bottts", seed="buster")
+        chat("test", avatar_style="bottts", seed="Buster")
         chat("Another test", is_user=True, avatar_style="avataaars")
         st.session_state.username = username
         username_header.empty()
