@@ -60,7 +60,7 @@ def main():
         st.session_state.input_message_key = str(random())
 
     questions = [
-        "What line of work are you in?",
+        "what line of work are you in?",
         "What are the key operating activities of your business?",
         "Are there any processes that are time-consuming or error-prone?",
         "Are there any areas of your business that you think could benefit from AI?",
@@ -84,7 +84,7 @@ def main():
 
         # Question processing
         if st.session_state.index == 0:
-            chat(f"Hello {username}" + questions[0], avatar_style="bottts", seed="Buster")
+            chat(f"Hello {username}, " + questions[0], avatar_style="bottts", seed="Buster")
             input = st.text_area(label=f"{username}",
                                  label_visibility="collapsed",
                                  placeholder="record your message...",
