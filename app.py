@@ -83,8 +83,9 @@ def main():
         start_button.empty()
 
         # Question processing
-        chat(f"Hello {username}. " + "Allow me to ask you a series of 5 questions to probe your business and determine "
-                                    "what AI can mean for your business.", avatar_style="bottts", seed="Buster")
+        chat(f"Hello {username}. " + "My name is BART, your personal AI consultant. Allow me to ask you a series of 5 "
+                                     "questions to probe your business and determine what AI can mean for your "
+                                     "business.", avatar_style="bottts", seed="Buster")
         for i in range(len(st.session_state.responses)+1):
             chat(questions[i], avatar_style="bottts", seed="Buster")
             if len(st.session_state.responses) >= i:
