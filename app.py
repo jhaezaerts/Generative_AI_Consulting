@@ -101,6 +101,14 @@ def main():
                                              icon_size="2xl",
                                              key=st.session_state.input_message_key + '1')
 
+            if audio_bytes:
+                with open('response.wav', mode='bw') as audio_file:
+                    audio_file.write(audio_bytes)
+                recording = open("response.wav", "rb")
+                stt = openai.Audio.transcribe("whisper-1", recording)
+                st.session_state.responses[st.session_state.index] = stt["text"]
+                chat(st.session_state.responses[0], is_user=True, avatar_style="initials", seed=username)
+
 
 if __name__ == "__main__":
     main()
