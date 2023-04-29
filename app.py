@@ -83,9 +83,11 @@ def main():
         start_button.empty()
 
         # Question processing
+        chat(f"Hello {username}." + "Allow me to ask you a series of 5 questions to probe your business and determine "
+                                    "what AI can mean for your business.", avatar_style="bottts", seed="Buster")
         for i in range(len(st.session_state.responses)+1):
-            chat(f"Hello {username}, " + questions[i], avatar_style="bottts", seed="Buster")
-            if st.session_state.responses:
+            chat(questions[i], avatar_style="bottts", seed="Buster")
+            if st.session_state.responses[i]:
                 chat(st.session_state.responses[i], is_user=True, avatar_style="initials", seed=username)
 
         c1, c2 = st.columns([9, 1])
