@@ -85,6 +85,7 @@ def main():
         # Question processing
         if st.session_state.index == 0:
             chat(f"Hello {username}, " + questions[0], avatar_style="bottts", seed="Buster")
+            test = st.placeholder()
             c1, c2 = st.columns([9, 1])
             with c1:
                 input = st.text_area(label=f"{username}",
@@ -107,7 +108,7 @@ def main():
                 recording = open("response.wav", "rb")
                 stt = openai.Audio.transcribe("whisper-1", recording)
                 st.session_state.responses[st.session_state.index] = stt["text"]
-                chat(st.session_state.responses[0], is_user=True, avatar_style="initials", seed=username)
+                test = chat(st.session_state.responses[0], is_user=True, avatar_style="initials", seed=username)
 
 
 if __name__ == "__main__":
