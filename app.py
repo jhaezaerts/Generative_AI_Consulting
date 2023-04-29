@@ -83,6 +83,7 @@ def main():
         start_button.empty()
 
         # Question processing
+        st.write(len(st.session_state.responses))
         for i in range(len(st.session_state.responses)):
             chat(f"Hello {username}, " + questions[i], avatar_style="bottts", seed="Buster")
             if st.session_state.responses:
