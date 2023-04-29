@@ -109,7 +109,7 @@ def main():
                 audio_file.write(audio_bytes)
             recording = open("response.wav", "rb")
             stt = openai.Audio.transcribe("whisper-1", recording)
-            st.session_state.responses[st.session_state.index] = stt["text"]
+            st.session_state.responses.append(stt["text"])
             submit = st.button("Send", type="primary")
 
         if submit:
