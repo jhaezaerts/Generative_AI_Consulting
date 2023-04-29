@@ -83,14 +83,17 @@ def main():
         start_button.empty()
 
         # Question processing
-        chat(f"Hello {username}, " + questions[0], avatar_style="bottts", seed="Buster")
-        test = st.empty()
+        for i in range(len(st.session_state.responses)):
+            chat(f"Hello {username}, " + questions[i], avatar_style="bottts", seed="Buster")
+            if st.session_state.responses:
+                chat(st.session_state.responses[i], is_user=True, avatar_style="initials", seed=username)
+
         c1, c2 = st.columns([9, 1])
         with c1:
-            input = st.text_area(label=f"{username}",
-                                 label_visibility="collapsed",
-                                 placeholder="record your message...",
-                                 disabled=True)
+            st.text_area(label=f"{username}",
+                         label_visibility="collapsed",
+                         placeholder="record your message...",
+                         disabled=True)
         with c2:
             st.header("")
             audio_bytes = audio_recorder(pause_threshold=10.0,
