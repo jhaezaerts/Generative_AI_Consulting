@@ -3,7 +3,7 @@ from random import random
 from audio_recorder_streamlit import audio_recorder
 import openai
 import streamlit as st
-from streamlit_chat import message
+from streamlit_chat import message as chat
 
 # Page Config
 st.set_page_config(page_title="AI Consulting by BART")
@@ -69,8 +69,8 @@ def main():
 
     # Initialize Q&A
     if username:
-        message("test")
-        message("Anothre test", is_user=True)
+        chat("test")
+        chat("Another test", is_user=True)
         st.session_state.username = username
         username_header.empty()
         username_input.empty()
