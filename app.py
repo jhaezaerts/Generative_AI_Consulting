@@ -83,10 +83,9 @@ def main():
                                      "questions which will help me determine what AI can mean for your business.",
              avatar_style="bottts", seed="Buster")
         for i in range(len(st.session_state.responses)+1):
-            chat(questions[i], avatar_style="bottts", seed="Buster")
+            chat(questions[i], avatar_style="bottts", seed="Buster", )
             if len(st.session_state.responses) != i:
-                chat(st.session_state.responses[i], is_user=True, avatar_style="initials", seed=username,
-                     key=st.session_state.input_message_key + str("msg"))
+                chat(st.session_state.responses[i], is_user=True, avatar_style="initials", seed=username)
 
         c1, c2 = st.columns([9, 1])
         with c1:
