@@ -6,13 +6,13 @@ import streamlit as st
 from streamlit_chat import message as chat
 
 # Page Config
-st.set_page_config(page_title="AI Consulting by BART")
+st.set_page_config(page_title="AI Consulting - BART")
 hide_default_format = """
-       <style>
-       #MainMenu {visibility: hidden; }
-       footer {visibility: hidden;}
-       </style>
-       """
+                      <style>
+                      #MainMenu {visibility: hidden; }
+                      footer {visibility: hidden;}
+                      </style>
+                      """
 st.markdown(hide_default_format, unsafe_allow_html=True)
 
 
@@ -25,17 +25,16 @@ def get_advice(description):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "system", "content": "You are a enthusiastic artificial intelligence consultant."},
             {"role": "user", "content": "Given the information given here: '"
-                                        + description
-                                        + "'. Express enthusiasm about the business that has been described above... "
-                                          "What are typical tasks performed in this business that are potentially "
-                                          "at risk of being automated by (generative) AI? List these task by increasing "
-                                          "difficulty of automation. Next, recommend AI tools and technologies that could"
-                                          "support automation of these tasks. Lastly, for each task, what are useful "
-                                          "tricks, tips or pitfalls in terms of automating them."
-                                          "If the information given above is unrelated to the description of a business, "
-                                          "say that you cannot provide valuable input."}
+                                        + description + "."
+                                        + "list 5 tasks performed in this business that are potentially at risk of "
+                                          "being automated by (generative) AI by increasing difficulty of automation. "
+                                          "Next, list 3 recommended AI tools and technologies that could support "
+                                          "automation of these tasks. Lastly, write a short text on specific steps "
+                                          "this business could take to start their automation journey with AI."
+                                          "However, if the information given above is unrelated to the description of "
+                                          "a business, say that you cannot provide valuable input."}
         ]
     )
     return response['choices'][0]['message']['content']
@@ -81,8 +80,8 @@ def main():
 
         # Question processing
         chat(f"Hello {username}. " + "My name is BART, your personal AI consultant. Allow me to ask you a series of 5 "
-                                     "questions to probe your business and determine what AI can mean for your "
-                                     "business.", avatar_style="bottts", seed="Buster")
+                                     "questions which will help me determine what AI can mean for your business.",
+             avatar_style="bottts", seed="Buster")
         for i in range(len(st.session_state.responses)+1):
             chat(questions[i], avatar_style="bottts", seed="Buster")
             if len(st.session_state.responses) != i:
@@ -125,6 +124,8 @@ def main():
                 st.session_state.responses.append(stt["text"])
             st.session_state.input_message_key = str(random())
             # st.experimental_rerun()
+
+        st.write(st.session_state.responses)
 
 
 if __name__ == "__main__":
