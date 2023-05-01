@@ -41,11 +41,6 @@ def get_advice(description):
     return response['choices'][0]['message']['content']
 
 
-def get_text():
-    input_text = st.text_input("You: ", "Hello, how are you?", key="input")
-    return input_text
-
-
 def main():
     st.title("Empower your business with AI:red[.]")
     st.title("")
@@ -91,7 +86,8 @@ def main():
         for i in range(len(st.session_state.responses)+1):
             chat(questions[i], avatar_style="bottts", seed="Buster")
             if len(st.session_state.responses) != i:
-                chat(st.session_state.responses[i], is_user=True, avatar_style="initials", seed=username, key=username+str(i))
+                chat(st.session_state.responses[i], is_user=True, avatar_style="initials", seed=username,
+                     key=username+str(i))
 
         c1, c2 = st.columns([9, 1])
         with c1:
