@@ -126,6 +126,7 @@ def main():
             # st.experimental_rerun()
 
         st.write(st.session_state.responses)
+        st.write(input_message)
 
 
 if __name__ == "__main__":
