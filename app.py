@@ -127,7 +127,10 @@ def main():
             st.session_state.input_message_key = str(random())
             st.experimental_rerun()
 
-        st.write(st.session_state.responses)
+        if len(st.session_state.responses) == 5:
+            with st.spinner('Processing your responses...'):
+                description = ', '.join(st.session_state.responses)
+                st.write(get_advice(description))
 
 
 if __name__ == "__main__":
