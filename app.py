@@ -86,6 +86,7 @@ def main():
             chat(questions[0], avatar_style="bottts", seed="Buster")
         else:
             for i in range(len(st.session_state.responses)+1):
+                st.write(i)
                 chat(questions[i], avatar_style="bottts", seed="Buster", key=str(random())+str(random()))
                 if i < len(st.session_state.responses):
                     chat(st.session_state.responses[i], is_user=True, avatar_style="initials", seed=username)
