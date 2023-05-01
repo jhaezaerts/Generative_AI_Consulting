@@ -13,4 +13,4 @@ This streamlit app generates AI-oriented business advice using OpenAI's GPT-3.5-
 
 ![image](https://user-images.githubusercontent.com/72695808/235516961-875f685c-eb04-49c8-b506-7aa1f557963e.png)
 
-<br>You can record your responses by clicking on the microphone alongside the question. If you answered the question, click on the microphone again to stop recording. Your response will then appear in the textbox. If you're satisfied, you can submit your response. Once you've submitted your response, the next question will appear. AI business advice will be generated once you've answered all questions. You can always record new responses if needed or have another chat after the responses have been generated.
+
