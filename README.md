@@ -1,7 +1,7 @@
 # **Generate AI business advice with OpenAI services.**
 
 
-<br>live version of this app at: 
+<br>Find the live version of this app at: 
 - https://bart-ai.streamlit.app/
 
 
