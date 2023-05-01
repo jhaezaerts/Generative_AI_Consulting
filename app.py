@@ -120,7 +120,7 @@ def main():
 
         if send:
             if stt:
-                st.session_state.responses.append(input_message)
+                st.session_state.responses.append(input_message.value)
             st.session_state.input_message_key = str(random())
             # st.experimental_rerun()
 
