@@ -112,7 +112,7 @@ def main():
                                          neutral_color="#000000",
                                          icon_name="fa-solid fa-microphone",
                                          icon_size="2xl",
-                                         key=st.session_state.input_message_key + '1')
+                                         key=st.session_state.input_message_key + str(1))
 
         if audio_bytes:
             with open('response.wav', mode='bw') as audio_file:
@@ -124,7 +124,7 @@ def main():
                                     label_visibility="collapsed",
                                     value=stt["text"],
                                     disabled=True,
-                                    key=st.session_state.input_message_key + str(1))
+                                    key=st.session_state.input_message_key + str(2))
             send = st.button("Send", type="primary")
 
         if send:
