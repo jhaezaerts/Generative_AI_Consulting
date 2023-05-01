@@ -111,7 +111,6 @@ def main():
                 audio_file.write(audio_bytes)
             recording = open("response.wav", "rb")
             stt = openai.Audio.transcribe("whisper-1", recording)
-            st.session_state.responses.append(stt["text"])
             input_message.text_area(label=f"{username}",
                                     label_visibility="collapsed",
                                     value=stt["text"],
@@ -121,12 +120,11 @@ def main():
 
         if send:
             if stt:
-                st.session_state.responses.append(stt["text"])
+                st.session_state.responses.append(input_message)
             st.session_state.input_message_key = str(random())
             # st.experimental_rerun()
 
         st.write(st.session_state.responses)
-        st.write(input_message)
 
 
 if __name__ == "__main__":
