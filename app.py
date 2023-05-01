@@ -86,7 +86,7 @@ def main():
             chat(questions[i], avatar_style="bottts", seed="Buster")
             if len(st.session_state.responses) != i:
                 chat(st.session_state.responses[i], is_user=True, avatar_style="initials", seed=username,
-                     key=username+str(i))
+                     key=st.session_state.input_message_key + str("msg"))
 
         c1, c2 = st.columns([9, 1])
         with c1:
