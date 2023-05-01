@@ -52,7 +52,7 @@ def main():
 
     stt = None
     message = None
-    submit = None
+    send = None
 
     if "username" not in st.session_state:
         st.session_state.username = ""
@@ -98,10 +98,11 @@ def main():
 
         c1, c2 = st.columns([9, 1])
         with c1:
-            st.text_area(label=f"{username}",
-                         label_visibility="collapsed",
-                         placeholder="record your message...",
-                         disabled=True)
+            input_message = st.empty()
+            input_message.text_area(label=f"{username}",
+                                    label_visibility="collapsed",
+                                    placeholder="record your message...",
+                                    disabled=True)
         with c2:
             st.header("")
             audio_bytes = audio_recorder(pause_threshold=10.0,
@@ -118,9 +119,14 @@ def main():
             recording = open("response.wav", "rb")
             stt = openai.Audio.transcribe("whisper-1", recording)
             st.session_state.responses.append(stt["text"])
-            submit = st.button("Send", type="primary")
+            input_message = st.text_area(label=f"{username}",
+                                         label_visibility="collapsed",
+                                         placeholder="record your message...",
+                                         disabled=True,
+                                         key=st.session_state.input_message_key + str(1))
+            send = st.button("Send", type="primary")
 
-        if submit:
+        if send:
             if stt:
                 st.session_state.responses[st.session_state.index] = stt["text"]
             st.session_state.index += 1
