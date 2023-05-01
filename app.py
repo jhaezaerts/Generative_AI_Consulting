@@ -122,7 +122,7 @@ def main():
             if stt:
                 st.session_state.responses.append(stt["text"])
             st.session_state.input_message_key = str(random())
-            # st.experimental_rerun()
+            st.experimental_rerun()
 
         st.write(st.session_state.responses)
 
