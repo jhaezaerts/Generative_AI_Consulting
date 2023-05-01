@@ -102,7 +102,8 @@ def main():
             input_message.text_area(label=f"{username}",
                                     label_visibility="collapsed",
                                     placeholder="record your message...",
-                                    disabled=True)
+                                    disabled=True,
+                                    key=st.session_state.input_message_key + str(0))
         with c2:
             st.header("")
             audio_bytes = audio_recorder(pause_threshold=10.0,
