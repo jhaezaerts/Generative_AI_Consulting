@@ -31,8 +31,8 @@ def get_advice(description):
                                         + "list 5 tasks performed in this business that are potentially at risk of "
                                           "being automated by (generative) AI by increasing difficulty of automation. "
                                           "Next, list 3 recommended AI tools and technologies that could support "
-                                          "automation of these tasks. Lastly, write a short text on specific steps "
-                                          "this business could take to start their automation journey with AI."
+                                          "automation of these tasks. Lastly, write a couple of sentences on specific "
+                                          "steps this business could take to start their automation journey with AI."
                                           "However, if the information given above is unrelated to the description of "
                                           "a business, say that you cannot provide valuable input."}
         ]
