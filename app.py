@@ -122,7 +122,7 @@ def main():
             st.session_state.responses.append(stt["text"])
             input_message = st.text_area(label=f"{username}",
                                          label_visibility="collapsed",
-                                         placeholder="record your message...",
+                                         value=stt["text"],
                                          disabled=True,
                                          key=st.session_state.input_message_key + str(1))
             send = st.button("Send", type="primary")
