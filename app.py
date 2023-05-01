@@ -41,6 +41,11 @@ def get_advice(description):
     return response['choices'][0]['message']['content']
 
 
+def get_text():
+    input_text = st.text_input("You: ", "Hello, how are you?", key="input")
+    return input_text
+
+
 def main():
     st.title("Empower your business with AI:red[.]")
     st.title("")
