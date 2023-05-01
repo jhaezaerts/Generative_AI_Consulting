@@ -51,13 +51,10 @@ def main():
     st.title("")
 
     stt = None
-    message = None
     send = None
 
     if "username" not in st.session_state:
         st.session_state.username = ""
-    if "index" not in st.session_state:
-        st.session_state.index = 0
     if "responses" not in st.session_state:
         st.session_state.responses = []
     if "session" not in st.session_state:
@@ -123,16 +120,15 @@ def main():
             input_message.text_area(label=f"{username}",
                                     label_visibility="collapsed",
                                     value=stt["text"],
-                                    disabled=True,
+                                    disabled=False,
                                     key=st.session_state.input_message_key + str(2))
             send = st.button("Send", type="primary")
 
         if send:
             if stt:
-                st.session_state.responses[st.session_state.index] = stt["text"]
-            st.session_state.index += 1
+                st.session_state.responses.append(stt["text"])
             st.session_state.input_message_key = str(random())
-            st.experimental_rerun()
+            # st.experimental_rerun()
 
 
 if __name__ == "__main__":
