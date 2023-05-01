@@ -82,9 +82,12 @@ def main():
         chat(f"Hello {username}. " + "My name is BART, your personal AI consultant. Allow me to ask you a series of 5 "
                                      "questions which will help me determine what AI can mean for your business.",
              avatar_style="bottts", seed="Buster")
-        for i in range(len(st.session_state.responses)):
-            chat(questions[i], avatar_style="bottts", seed="Buster")
-            chat(st.session_state.responses[i], is_user=True, avatar_style="initials", seed=username)
+        if len(st.session_state.responses) == 0:
+            chat(questions[0], avatar_style="bottts", seed="Buster")
+        else:
+            for i in range(len(st.session_state.responses)):
+                chat(questions[i], avatar_style="bottts", seed="Buster")
+                chat(st.session_state.responses[i], is_user=True, avatar_style="initials", seed=username)
 
         c1, c2 = st.columns([9, 1])
         with c1:
