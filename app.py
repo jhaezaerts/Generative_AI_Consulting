@@ -128,9 +128,12 @@ def main():
             st.experimental_rerun()
 
         if len(st.session_state.responses) == 5:
-            with st.spinner('Processing your responses...'):
+            with st.spinner('Thinking...'):
                 description = ', '.join(st.session_state.responses)
                 st.write(get_advice(description))
+                if st.button("Try again", type="primary"):
+                    st.session_state.responses = []
+                    st.experimental_rerun()
 
 
 if __name__ == "__main__":
